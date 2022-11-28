@@ -9,6 +9,8 @@ import { FormAjoutComponent } from '../../Etudiant/form-ajout/form-ajout.compone
 import { FormUpdateComponent } from '../../Etudiant/form-update/form-update.component';
 import { TableListComponent } from '../../Etudiant/table-list/table-list.component';
 import { affichageComponent } from 'app/Etudiant/affichage/affichage.component';
+import { affichageContratComponent } from 'app/Contrat/affichageContart/affichage.component';
+import { TableListContratComponent } from 'app/Contrat/table-listContrat/table-list.component';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
@@ -43,6 +45,8 @@ import {NgxPaginationModule} from 'ngx-pagination'
     FormAjoutComponent,
     FormUpdateComponent,
     affichageComponent,
+    affichageContratComponent,
+    TableListContratComponent,
 
 
   ]

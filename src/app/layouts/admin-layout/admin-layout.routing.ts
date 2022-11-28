@@ -6,6 +6,8 @@ import { TableListComponent } from '../../Etudiant/table-list/table-list.compone
 import { FormAjoutComponent } from 'app/Etudiant/form-ajout/form-ajout.component';
 import { FormUpdateComponent } from 'app/Etudiant/form-update/form-update.component';
 import { affichageComponent } from 'app/Etudiant/affichage/affichage.component';
+import { affichageContratComponent } from 'app/Contrat/affichageContart/affichage.component';
+import { TableListContratComponent } from 'app/Contrat/table-listContrat/table-list.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -38,5 +40,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'Form-Ajout',     component: FormAjoutComponent },
     { path: 'Form-Update',     component: FormUpdateComponent },
     { path: 'affichage/:id',     component: affichageComponent },
+    { path: 'affichage/:id',     component: affichageContratComponent },
+    { path: 'table-listContrat',     component: TableListContratComponent },
+
   
 ];

@@ -17,10 +17,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './authentification/login/login.component';
-import { FormAjoutComponent } from './Contrat/form-ajout/form-ajout.component';
-import { FormUpdateComponent } from './Contrat/form-update/form-update.component';
-import { AffichageComponent } from './Contrat/affichage/affichage.component';
-import { TableListComponent } from './Contrat/table-list/table-list.component';
+
 
 
 
@@ -47,10 +44,7 @@ import { TableListComponent } from './Contrat/table-list/table-list.component';
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-    FormAjoutComponent,
-    FormUpdateComponent,
-    AffichageComponent,
-    TableListComponent,
+   
 
   ],
   providers: [],
