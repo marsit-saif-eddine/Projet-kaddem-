@@ -22,6 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
 import {NgxPaginationModule} from 'ngx-pagination'
 import { FormAjoutContratComponent } from 'app/Contrat/form-ajoutContrat/form-ajout.component';
+import { FormUpdateContratComponent } from 'app/Contrat/form-updateContrat/form-updateContrat.component' ;
+
 
 @NgModule({
   imports: [
@@ -50,6 +52,7 @@ import { FormAjoutContratComponent } from 'app/Contrat/form-ajoutContrat/form-aj
     affichageContratComponent,
     TableListContratComponent,
     FormAjoutContratComponent,
+    FormUpdateContratComponent,
 
 
   ]

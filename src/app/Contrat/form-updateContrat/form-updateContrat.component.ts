@@ -1,14 +1,15 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Contrat } from 'app/Models/contrat';
 import { ShareServiceService } from 'app/services/share-service.service';
 import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-Form-Update',
-  templateUrl: './form-update.component.html',
-  styleUrls: ['./form-update.component.css']
+  templateUrl: './form-updateContrat.component.html',
+  styleUrls: ['./form-updateContrat.component.css']
 })
-export class FormUpdateComponent implements OnInit {
+export class FormUpdateContratComponent implements OnInit {
   g={
     "name": "John Doe",
     "trips": 500,
@@ -18,6 +19,11 @@ export class FormUpdateComponent implements OnInit {
   dataArray:any
   dataob:Subscription
   name:string
+  selected = 'IA'
+  selected1 = false
+  contrat: Contrat = new Contrat; 
+
+
   constructor(@Inject(MAT_DIALOG_DATA) public data:any , private share:ShareServiceService) {
     
     
@@ -38,7 +44,7 @@ export class FormUpdateComponent implements OnInit {
   ngOnInit() {
     this.result=this.data
     this.Reactiveform.setValue({
-      nom:this.result.name,
+      nom:this.result.idContrat,
       
     })
     

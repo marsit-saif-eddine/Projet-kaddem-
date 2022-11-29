@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ContratService } from 'app/services/contrat.service';
 import { Contrat } from 'app/Models/contrat';
+import { FormUpdateContratComponent } from '../form-updateContrat/form-updateContrat.component';
 //import { FormUpdateComponent } from '../form-update/form-update.component';
 
 
@@ -48,9 +49,9 @@ export class TableListContratComponent implements OnInit,OnDestroy {
     this.router.navigate(['/affichage/'+item.name]);
   }
   OpenPopup(item){
-    //this.matdialog.open(FormUpdateComponent,{
-  //    data:item
-   // })
+    this.matdialog.open(FormUpdateContratComponent,{
+     data:item
+   })
   }
   ContratList():void{
     this.contartService.getContrat().subscribe(
