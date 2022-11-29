@@ -12,25 +12,18 @@ export class FormAjoutContratComponent implements OnInit {
   dataArray:  Contrat[] = [];
   dataob:Subscription
   contrat: Contrat = new Contrat; 
+  selected = 'IA';
 
   constructor(private contratServices: ContratService) {
-  
-    
-   
+    this.contrat = new Contrat();
    }
-  //  get(f){
-  //   console.log(f) ;
-  //   this.dataob=this.contratServices.addContrat(f.value).subscribe(data=>{console.log(data)})
-  //  }
 
    save()
   {
-    
     this.contrat.archive = false ;
     console.log(this.contrat) ;
 
     this.contratServices.addContrat(this.contrat).subscribe(
-     // () => this.listContrat = [this.contrat, ...this.listContrat]
      () => this.dataArray.push(this.contrat) 
     );
       
@@ -39,6 +32,7 @@ export class FormAjoutContratComponent implements OnInit {
 
   ngOnInit() {
   }
+
   ngOnDestroy(){
     this.dataob.unsubscribe()
   }
