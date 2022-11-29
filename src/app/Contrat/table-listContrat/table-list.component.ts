@@ -23,7 +23,7 @@ export class TableListContratComponent implements OnInit,OnDestroy {
   title = "pagination";
   count : number =0;
   page : number =1;
-  tableSize : number =2;
+  tableSize : number =5;
   tableSizes : any = [5 , 10 , 15 , 20];
 
 
@@ -32,9 +32,17 @@ export class TableListContratComponent implements OnInit,OnDestroy {
    
 
    }
-  // getid(id){
-  //   this.dataobnb=this.share.deletepostById(id).subscribe(data=>{console.log(data)})
-  // }
+ 
+
+  deleteContart(id: any)
+  {
+    console.log(id) ;
+    //principe de call back fi wost l subscribe
+    this.contartService.deleteContrat(id).subscribe(() => this.dataArray = this.dataArray.filter(Contrat => Contrat.idContrat != id),
+    error => { console.log("Message d'erreur")}
+    );
+    
+  }
 
   onselect(item){
     this.router.navigate(['/affichage/'+item.name]);
