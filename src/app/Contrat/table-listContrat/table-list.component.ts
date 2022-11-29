@@ -23,7 +23,7 @@ export class TableListContratComponent implements OnInit,OnDestroy {
   title = "pagination";
   count : number =0;
   page : number =1;
-  tableSize : number =7;
+  tableSize : number =2;
   tableSizes : any = [5 , 10 , 15 , 20];
 
 
@@ -35,6 +35,7 @@ export class TableListContratComponent implements OnInit,OnDestroy {
   // getid(id){
   //   this.dataobnb=this.share.deletepostById(id).subscribe(data=>{console.log(data)})
   // }
+
   onselect(item){
     this.router.navigate(['/affichage/'+item.name]);
   }
@@ -69,11 +70,11 @@ export class TableListContratComponent implements OnInit,OnDestroy {
 
 
   ngOnInit() {
-    // let sub = this.share.searchText$.subscribe(data=>{
-    //   this.search=data;
-    //   // console.log(this.search);
-    // })
-    // this.subscriptions.add(sub)
+   let sub = this.contartService.searchText$.subscribe(data=>{
+      this.search=data;
+       console.log(this.search);
+    })
+    this.subscriptions.add(sub)
     
   }
   ngOnDestroy(){

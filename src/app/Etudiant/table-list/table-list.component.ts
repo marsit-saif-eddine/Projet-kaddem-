@@ -66,7 +66,7 @@ export class TableListComponent implements OnInit,OnDestroy {
   ngOnInit() {
     let sub = this.share.searchText$.subscribe(data=>{
       this.search=data;
-      // console.log(this.search);
+       console.log(this.search);
     })
     this.subscriptions.add(sub)
     

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Contrat } from 'app/Models/contrat'; 
+import { Subject } from 'rxjs';
+
 
 @Injectable({providedIn: 'root'})
 export class ServiceNameService {
@@ -13,6 +15,7 @@ export class ServiceNameService {
 })
 
 export class ContratService {  
+  searchText$ = new Subject<String>() ;
 
   readonly API_URL =  "http://localhost:8088/SpringMVC/contractC" ; 
 

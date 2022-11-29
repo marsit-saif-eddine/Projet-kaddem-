@@ -3,6 +3,7 @@ import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
 import { ShareServiceService } from 'app/services/share-service.service';
+import { ContratService } from 'app/services/contrat.service';
 
 
 
@@ -20,7 +21,7 @@ export class NavbarComponent implements OnInit {
     enteredSearchValue: string = "";
     
 
-    constructor(private service: ShareServiceService,  location: Location,  private element: ElementRef, private router: Router) {
+    constructor(private service: ShareServiceService , private serviceContrat: ContratService,  location: Location,  private element: ElementRef, private router: Router) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -137,6 +138,8 @@ export class NavbarComponent implements OnInit {
 
      onSearchTextChanged(search:string){
         this.service.searchText$.next(search);
+        this.serviceContrat.searchText$.next(search);
+
 
 
          
