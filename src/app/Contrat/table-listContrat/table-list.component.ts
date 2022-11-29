@@ -49,6 +49,7 @@ export class TableListContratComponent implements OnInit,OnDestroy {
     this.router.navigate(['/affichage/'+item.name]);
   }
   OpenPopup(item){
+    console.log(item);
     this.matdialog.open(FormUpdateContratComponent,{
      data:item
    })
