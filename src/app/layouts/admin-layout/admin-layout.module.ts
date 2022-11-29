@@ -21,6 +21,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
 import {NgxPaginationModule} from 'ngx-pagination'
+import { FormAjoutContratComponent } from 'app/Contrat/form-ajoutContrat/form-ajout.component';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import {NgxPaginationModule} from 'ngx-pagination'
     HttpClientModule,
     MatDialogModule,
     NgxPaginationModule,
+    
   ],
   declarations: [
     DashboardComponent,
@@ -47,6 +49,7 @@ import {NgxPaginationModule} from 'ngx-pagination'
     affichageComponent,
     affichageContratComponent,
     TableListContratComponent,
+    FormAjoutContratComponent,
 
 
   ]

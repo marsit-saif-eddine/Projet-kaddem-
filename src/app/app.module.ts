@@ -11,9 +11,6 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
-
-
-
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './authentification/login/login.component';
@@ -24,7 +21,6 @@ import { LoginComponent } from './authentification/login/login.component';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
-    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     ComponentsModule,

@@ -1,0 +1,58 @@
+<div class="main-content">
+
+  <div class="">
+      
+          <div class="card">
+              <div class="card-header card-header-danger">
+                  <h4 class="card-title">Ajouter contart</h4>
+                  <p class="card-category">Complete your profile</p>
+              </div>
+              <div class="card-body">
+                  <form #f="ngForm">
+                      <div class="row">
+                          <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Ajouter un contart" disabled>
+                              </mat-form-field>
+                          </div>
+                        
+                      </div>
+                      <div class="row">
+                          <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                              <input matInput name="dateDebutContrat" [(ngModel)]="contrat.dateDebutContrat" placeholder="Date debut" type="date">
+                            </mat-form-field>
+                          </div>
+                          
+                      </div>
+                      <div class="row">
+                          <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                              <input matInput name="dateFinContrat" [(ngModel)]="contrat.dateFinContrat" placeholder="Date fin" type="date">
+                            </mat-form-field>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                              <input matInput name="montantContart" [(ngModel)]="contrat.montantContrat" placeholder="Montant" type="number">
+                            </mat-form-field>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                               <input matInput placeholder="Specialite" name="spec" [(ngModel)]="contrat.spec">
+                             </mat-form-field>
+                          </div>
+                      </div>
+                      <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="save()">Ajouter contrat</button>
+                      <div class="clearfix"></div>
+                  </form>
+              </div>
+          </div>
+      
+      
+  </div>
+
+</div>

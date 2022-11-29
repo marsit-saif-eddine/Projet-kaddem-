@@ -16,7 +16,7 @@ export class FormAjoutComponent implements OnInit {
    
    }
    get(f){
-    
+    console.log(f);
     this.dataob=this.share.adduser(f.value).subscribe(data=>{console.log(data)})
     
    }
