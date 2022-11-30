@@ -14,7 +14,6 @@ export class affichageContratComponent implements OnInit {
 
    id=''
   dataArray:any
-  dataob:Subscription
   
   constructor(private share:ContratService, private route:ActivatedRoute) {
     this.route.params.subscribe(data=>this.id=data.id)
@@ -26,9 +25,7 @@ export class affichageContratComponent implements OnInit {
 
   ngOnInit() {
   }
-  ngOnDestroy(){
-    this.dataob.unsubscribe()
-  }
+  
  
   
 

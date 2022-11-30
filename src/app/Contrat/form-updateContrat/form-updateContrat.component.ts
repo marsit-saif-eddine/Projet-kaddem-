@@ -24,7 +24,7 @@ export class FormUpdateContratComponent implements OnInit {
   name:string
   selected = 'IA'
   selected1 = false
-  contrat: Contrat = new Contrat;
+  contrat: Contrat 
  
 
 
@@ -36,11 +36,11 @@ export class FormUpdateContratComponent implements OnInit {
 
     Reactiveform = new FormGroup({
     idContrat: new FormControl(""),
-    datedeb: new FormControl("",Validators.required),
-    datefin: new FormControl("",Validators.required),
-    montant: new FormControl("",Validators.required),
+    dateDebutContrat: new FormControl("",Validators.required),
+    dateFinContrat: new FormControl("",Validators.required),
+    montantContrat: new FormControl("",Validators.required),
     archive: new FormControl("",Validators.required),
-    specialite: new FormControl("",Validators.required),
+    spec: new FormControl("",Validators.required),
 
 
 
@@ -49,20 +49,18 @@ export class FormUpdateContratComponent implements OnInit {
    
   onSubmit()
   {
-  this.contrat = this.Reactiveform.value
-  //console.log(this.contrat.dateDebutContrat)
-  this.contartService.updateContart(this.contrat).subscribe(data=>{console.log(data)})
+  this.contartService.updateContart(this.Reactiveform.value).subscribe(data=>{console.log(data)})
   }
 
   ngOnInit() {
     this.result=this.data 
     this.Reactiveform.setValue ({
       idContrat: this.result.idContrat,
-      datedeb:this.result.dateDebutContrat,
-      datefin:this.result.dateFinContrat,
-      montant:this.result.montantContrat,
+      dateDebutContrat:this.result.dateDebutContrat,
+      dateFinContrat:this.result.dateFinContrat,
+      montantContrat:this.result.montantContrat,
       archive:this.result.archive,
-      specialite:this.result.spec,
+      spec:this.result.spec,
       
     })
 
