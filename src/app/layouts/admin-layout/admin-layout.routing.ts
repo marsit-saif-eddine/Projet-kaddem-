@@ -6,6 +6,8 @@ import { TableListComponent } from '../../Etudiant/table-list/table-list.compone
 import { FormAjoutComponent } from 'app/Etudiant/form-ajout/form-ajout.component';
 import { FormUpdateComponent } from 'app/Etudiant/form-update/form-update.component';
 import { affichageComponent } from 'app/Etudiant/affichage/affichage.component';
+import { ListUniversiteComponent } from 'app/Universite/list-universite/list-universite.component';
+import { AddUniversiteComponent } from 'app/Universite/add-universite/add-universite.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -37,6 +39,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'table-list',     component: TableListComponent },
     { path: 'Form-Ajout',     component: FormAjoutComponent },
     { path: 'Form-Update',     component: FormUpdateComponent },
-    { path: 'affichage/:id',     component: affichageComponent },
+    { path: 'affichage/:id', component: affichageComponent },
+    { path: 'listuniversite',     component: ListUniversiteComponent },
+    { path: 'adduniversite',     component: AddUniversiteComponent }
+
   
 ];

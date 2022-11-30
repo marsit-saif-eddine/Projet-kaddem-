@@ -17,6 +17,9 @@ import {MatSelectModule} from '@angular/material/select';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './authentification/login/login.component';
+import { ListUniversiteComponent } from './Universite/list-universite/list-universite.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AddUniversiteComponent } from './Universite/add-universite/add-universite.component';
 
 
 
@@ -35,12 +38,15 @@ import { LoginComponent } from './authentification/login/login.component';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    NgxPaginationModule
     
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
+    ListUniversiteComponent,
+    AddUniversiteComponent
 
   ],
   providers: [],

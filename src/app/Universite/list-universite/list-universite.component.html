@@ -1,0 +1,64 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <div style="position:absolute">
+                            <h4 class="card-title ">Universites List</h4>
+                            <p class="card-category"> Here is a subtitle for this table</p>
+
+                        </div>
+                        <div>
+                            <a mat-raised-button href="/adduniversite" class="btn btn-danger pull-right">Add Universite</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>ID</th>
+                                    <th>NAME</th>
+                                    <th>EDIT</th>
+                                    <th>DELETE</th>
+
+                                </thead>
+                                <tbody *ngFor="let u of universites | paginate:{
+                                itemsPerPage : tableSize,
+                                currentPage : page ,
+                                totalItems : count
+                                }; let i = index">
+                                    <tr *ngIf="search=='' || u.nomUniv.toLowerCase().includes(search)">
+                                        <td>
+                                            <a style="text-decoration: none; color:black" (click)="onselect(u)">
+                                            {{u.idUniv}}</a>
+                                        </td>
+                                        <td>{{u.nomUniv}}</td> 
+                                        <td class="td-actions">
+                                            <button mat-raised-button (click)="OpenPopup(u)" type="button" matTooltip="Edit Task"
+                                                [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">edit</i>
+                                            </button>
+                                        </td>
+                                        <td class="td-actions">
+                                            <button mat-raised-button type="button" (click)="deleteUnivByid(u.idUniv) " matTooltip="Remove"
+                                                [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">close</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div style="text-align: -webkit-center;">
+                                <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+                            
+                                </pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

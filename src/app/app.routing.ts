@@ -5,6 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './authentification/login/login.component';
+import { ListUniversiteComponent } from './Universite/list-universite/list-universite.component';
+import { AddUniversiteComponent } from './Universite/add-universite/add-universite.component';
 
 const routes: Routes =[
   {
@@ -20,6 +22,9 @@ const routes: Routes =[
     }]
   },
   { path: 'login',     component: LoginComponent },
+  { path: 'listuniversite', component: ListUniversiteComponent },
+  { path: 'addUniversite',     component: AddUniversiteComponent }
+
 ];
 
 @NgModule({

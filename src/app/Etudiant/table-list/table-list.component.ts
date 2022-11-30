@@ -49,7 +49,6 @@ export class TableListComponent implements OnInit,OnDestroy {
   // onSearchTextEnter(searchvalue : string){
   //   this.searchTextt = searchvalue;
   //   console.log(this.searchTextt)
-
   // }
   
   onTableDataChange(event:any){

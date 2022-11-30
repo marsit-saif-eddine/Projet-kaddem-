@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ShareServiceService {
+  
   searchText$ = new Subject<String>()
   
   constructor(private http:HttpClient) {
