@@ -45,14 +45,18 @@ export class FormUpdateContratComponent implements OnInit {
   })
  
    
+  onSubmit()
+  {
+   console.log(this.Reactiveform.value);
+   //this.contartService.updateContart(this.Reactiveform.value).subscribe();  
+   this.dataob=this.contartService.updateContart(this.Reactiveform.value).subscribe(data=>{console.log(data)})
+
+  }
+
 
    putpassenger(id){
     console.log(id)
-    if(this.Reactiveform.valid){
       this.dataob=this.contartService.updateContart(id).subscribe(data=>{console.log(data)})
-    }
-   
-    
    }
 
   
@@ -65,8 +69,6 @@ export class FormUpdateContratComponent implements OnInit {
       montant:this.result.montantContrat,
       archive:this.result.archive,
       specialite:this.result.spec,
-
-
       
     })
 
