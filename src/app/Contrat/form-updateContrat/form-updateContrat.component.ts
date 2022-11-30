@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Contrat } from 'app/Models/contrat';
-import { ContratService } from 'app/services/contrat.service';
+import { ContratService } from 'app/contrat/service/contrat.service';
 import { ShareServiceService } from 'app/services/share-service.service';
 import { Subscription } from 'rxjs';
 @Component({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Contrat } from 'app/Models/contrat';
-import { ContratService } from 'app/services/contrat.service';
+import { ContratService } from 'app/contrat/service/contrat.service';
 import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-Form-Ajout',

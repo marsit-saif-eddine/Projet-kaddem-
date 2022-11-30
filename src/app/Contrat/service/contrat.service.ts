@@ -15,7 +15,7 @@ export class ServiceNameService {
 })
 
 export class ContratService {  
-  searchText$ = new Subject<String>() ;
+ 
 
   readonly API_URL =  "http://localhost:8088/SpringMVC/contractC" ; 
 

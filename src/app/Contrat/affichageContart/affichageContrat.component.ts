@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ContratService } from 'app/services/contrat.service';
+import { ContratService } from 'app/contrat/service/contrat.service';
 import { ShareServiceService } from 'app/services/share-service.service';
 import { data } from 'jquery';
 import { Subscription } from 'rxjs';

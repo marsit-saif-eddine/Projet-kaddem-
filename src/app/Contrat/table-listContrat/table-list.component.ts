@@ -4,7 +4,7 @@ import { data } from 'jquery';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { ContratService } from 'app/services/contrat.service';
+import { ContratService } from 'app/contrat/service/contrat.service';
 import { Contrat } from 'app/Models/contrat';
 import { FormUpdateContratComponent } from '../form-updateContrat/form-updateContrat.component';
 //import { FormUpdateComponent } from '../form-update/form-update.component';
@@ -28,7 +28,7 @@ export class TableListContratComponent implements OnInit,OnDestroy {
   tableSizes : any = [5 , 10 , 15 , 20];
 
 
-  constructor(private  contartService: ContratService, private router:Router,private matdialog:MatDialog) {
+  constructor(private  contartService: ContratService,private share:ShareServiceService, private router:Router,private matdialog:MatDialog) {
     this.ContratList();
    
 
@@ -80,7 +80,7 @@ export class TableListContratComponent implements OnInit,OnDestroy {
 
 
   ngOnInit() {
-   let sub = this.contartService.searchText$.subscribe(data=>{
+   let sub = this.share.searchText$.subscribe(data=>{
       this.search=data;
        console.log(this.search);
     })
