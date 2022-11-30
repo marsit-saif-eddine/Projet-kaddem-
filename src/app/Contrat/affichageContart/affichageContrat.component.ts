@@ -1,22 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ContratService } from 'app/services/contrat.service';
 import { ShareServiceService } from 'app/services/share-service.service';
 import { data } from 'jquery';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'affichage-Update',
-  templateUrl: './affichage.component.html',
-  styleUrls: ['./affichage.component.css']
+  templateUrl: './affichageContrat.component.html',
+  styleUrls: ['./affichageContrat.component.css']
 })
 export class affichageContratComponent implements OnInit {
 
- id=''
+   id=''
   dataArray:any
   dataob:Subscription
-  constructor(private share:ShareServiceService, private route:ActivatedRoute) {
+  
+  constructor(private share:ContratService, private route:ActivatedRoute) {
     this.route.params.subscribe(data=>this.id=data.id)
-    this.share.getoneetudiant(this.id).subscribe(response=>this.dataArray=response)
+    this.share.getbyId(this.id).subscribe(response=>this.dataArray=response)
     
    
    }

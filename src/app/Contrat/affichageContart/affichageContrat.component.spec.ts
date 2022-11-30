@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { affichageContratComponent } from './affichage.component';
+import { affichageContratComponent } from './affichageContrat.component';
 
 describe('affichageContratComponent', () => {
   let component: affichageContratComponent;

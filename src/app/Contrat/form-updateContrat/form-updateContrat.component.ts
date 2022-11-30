@@ -24,7 +24,8 @@ export class FormUpdateContratComponent implements OnInit {
   name:string
   selected = 'IA'
   selected1 = false
-  contrat: Contrat = new Contrat; 
+  contrat: Contrat = new Contrat;
+ 
 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data:any , private contartService:ContratService) {
@@ -34,6 +35,7 @@ export class FormUpdateContratComponent implements OnInit {
    }
 
     Reactiveform = new FormGroup({
+    idContrat: new FormControl(""),
     datedeb: new FormControl("",Validators.required),
     datefin: new FormControl("",Validators.required),
     montant: new FormControl("",Validators.required),
@@ -47,23 +49,15 @@ export class FormUpdateContratComponent implements OnInit {
    
   onSubmit()
   {
-   console.log(this.Reactiveform.value);
-   //this.contartService.updateContart(this.Reactiveform.value).subscribe();  
-   this.dataob=this.contartService.updateContart(this.Reactiveform.value).subscribe(data=>{console.log(data)})
-
+  this.contrat = this.Reactiveform.value
+  //console.log(this.contrat.dateDebutContrat)
+  this.contartService.updateContart(this.contrat).subscribe(data=>{console.log(data)})
   }
-
-
-   putpassenger(id){
-    console.log(id)
-      this.dataob=this.contartService.updateContart(id).subscribe(data=>{console.log(data)})
-   }
-
-  
 
   ngOnInit() {
     this.result=this.data 
     this.Reactiveform.setValue ({
+      idContrat: this.result.idContrat,
       datedeb:this.result.dateDebutContrat,
       datefin:this.result.dateFinContrat,
       montant:this.result.montantContrat,

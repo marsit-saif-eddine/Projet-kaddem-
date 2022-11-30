@@ -10,7 +10,7 @@
                     
                     </div>
                     <div >
-                      <a mat-raised-button href="/Form-Ajout" class="btn btn-danger pull-right">Add Something</a>
+                      <a mat-raised-button  class="btn btn-danger pull-right">Add Something</a>
                     </div>
                   </div>
                   <div class="card-body">
@@ -38,6 +38,9 @@
                                   <th>
                                     Etudiant en relation 
                                   </th>
+                                  <th>
+                                    Edit
+                                </th>
                                 <th>
                                     Remove
                                 </th>
@@ -49,9 +52,10 @@
                               }; let i = index">
                                   <tr *ngIf="search=='' || item.spec.toLowerCase().includes(search)">
                                    
-                                      <td> <a style="text-decoration: none; color:black" (click)="onselect(item)">   </a>
+                                      <td> <a style="text-decoration: none; color:black" (click)="onselect(item)">   {{item.idContrat}}
+                                         </a>
                                         
-                                         {{item.idContrat}}
+                                        
                                       
                                       </td>
                                       <td>

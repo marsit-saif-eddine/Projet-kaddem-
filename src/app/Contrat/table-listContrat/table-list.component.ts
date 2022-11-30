@@ -46,7 +46,7 @@ export class TableListContratComponent implements OnInit,OnDestroy {
   }
 
   onselect(item){
-    this.router.navigate(['/affichage/'+item.name]);
+    this.router.navigate(['/affichageContrat/'+item.idContrat]);
   }
   OpenPopup(item){
     console.log(item);

@@ -23,6 +23,9 @@ export class ContratService {
   readonly ENDPOINT_DELETE_CONTRAT = "/delete/"
   readonly ENDPOINT_ADD_CONTRAT = "/add" ; 
   readonly ENDPOINT_UPDATE_CONTRAT ="/update" ; 
+  readonly ENDPOINT_GETBYID ="/list/"
+
+ 
 
 
   
@@ -49,5 +52,10 @@ export class ContratService {
   updateContart(c: Contrat)
   {
     return this.httpClient.put(this.API_URL+this.ENDPOINT_UPDATE_CONTRAT,c) 
+  }
+
+  getbyId(id:any)
+  {
+    return this.httpClient.get(this.API_URL+this.ENDPOINT_GETBYID+id)
   }
 }
