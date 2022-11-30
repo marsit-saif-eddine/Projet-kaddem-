@@ -1,0 +1,31 @@
+<div class="main-content">
+    <div class="">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <h4 class="card-title">Update Universite</h4>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="formUniversite">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>ID Universite</label>
+                            <input type="text" formControlName="idUniv" readonly>
+                        </div>
+                        <div class="col-md-3">
+                            <label>NOM Universite</label>
+                            <input type="text" formControlName="nomUniv">
+                            <div *ngIf="nomUniv?.invalid">
+                                <div *ngIf="nomUniv?.errors?.['required']">required</div>
+                                <div *ngIf="nomUniv?.errors?.['minlength']">minlength</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="submit" class="btn btn-danger pull-right" value="Submit"
+                                (click)="updateUniversite(formUniversite.value)" [disabled]="formUniversite.invalid">
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

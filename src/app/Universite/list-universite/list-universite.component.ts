@@ -5,6 +5,7 @@ import { CommonModule } from "@angular/common";
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
+import { UpdateUniversiteComponent } from '../update-universite/update-universite.component';
 
 @Component({
   selector: 'app-list-universite',
@@ -19,13 +20,13 @@ export class ListUniversiteComponent implements OnInit,OnDestroy {
   title = "pagination";
   count : number =0;
   page : number =1;
-  tableSize : number =7;
+  tableSize : number =3;
   tableSizes : any = [5 , 10 , 15 , 20];
 
 
 
-  constructor(private universiteService: UniversiteServiceService, private router:Router) {
-    this.UniversiteList()
+  constructor(private universiteService: UniversiteServiceService, private router: Router, private matdialog: MatDialog) {
+     this.UniversiteList();
    }
 
   ngOnInit(): void {
@@ -61,7 +62,14 @@ export class ListUniversiteComponent implements OnInit,OnDestroy {
   }
 
   deleteUnivByid(id){
-    this.dataobnb = this.universiteService.deleteUniversiteById(id).subscribe(data => { console.log(data) })
+    this.dataobnb = this.universiteService.deleteUniversiteById(id).subscribe(() => this.universites = this.universites.filter(universite => universite.idUniv != id),
+    error => { console.log("Message d'erreur")}
+    );
+  }
+  OpenPopup(item){
+    this.matdialog.open(UpdateUniversiteComponent,{
+      data:item.idUniv
+    })
   }
 
 }

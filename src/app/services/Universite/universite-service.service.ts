@@ -22,4 +22,7 @@ export class UniversiteServiceService {
   addUniversite(universite:any) {
     return this.http.post("http://localhost:8088/SpringMVC/UniversiteC/addUniversite",universite);
   }
+  updateUniversite(universite: any) {
+    return this.http.put("http://localhost:8088/SpringMVC/UniversiteC/updateUniversite",universite);
+  }
 }

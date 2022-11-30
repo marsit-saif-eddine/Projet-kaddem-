@@ -10,14 +10,14 @@
                     <div class="row">
                         <div class="col-md-3">
                             <label>NOM Universite</label>
-                            <input type="text" name="nomUniv" ngModel required minlength="2" #nomUniv="ngModel">
+                            <input type="text" name="nomUniv" ngModel required minlength="3" #nomUniv="ngModel">
                                 <div *ngIf="nomUniv.invalid && nomUniv.touched">
                                     <div *ngIf="nomUniv.errors?.['required']">required</div>
                                     <div *ngIf="nomUniv.errors?.['minlength']">Le nom doit contenir au moins 3 lettres</div>
                                 </div>  
                         </div>    
                         <div class="col-md-3">
-                            <input  type="submit" class="btn btn-danger pull-right" value="Submit" (click)="addUniversite(FormUniv)">
+                            <input  type="submit" class="btn btn-danger pull-right" value="Submit" (click)="addUniversite(FormUniv)" [disabled]="FormUniv.invalid">
                         </div>
                     <div class="clearfix"></div>
                  </div>

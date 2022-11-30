@@ -20,6 +20,7 @@ import { LoginComponent } from './authentification/login/login.component';
 import { ListUniversiteComponent } from './Universite/list-universite/list-universite.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AddUniversiteComponent } from './Universite/add-universite/add-universite.component';
+import { UpdateUniversiteComponent } from './Universite/update-universite/update-universite.component';
 
 
 
@@ -46,7 +47,8 @@ import { AddUniversiteComponent } from './Universite/add-universite/add-universi
     AdminLayoutComponent,
     LoginComponent,
     ListUniversiteComponent,
-    AddUniversiteComponent
+    AddUniversiteComponent,
+    UpdateUniversiteComponent
 
   ],
   providers: [],
