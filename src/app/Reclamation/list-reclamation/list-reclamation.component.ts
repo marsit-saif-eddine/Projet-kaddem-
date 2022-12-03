@@ -23,6 +23,7 @@ export class ListReclamationComponent implements OnInit, OnDestroy {
   constructor(private reclamationService: ReclamationServiceService, private matdialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.ReclamationList()
 
     this.reclamationService.RefreshRequired.subscribe(response => {
         this.ReclamationList()
@@ -64,7 +65,7 @@ export class ListReclamationComponent implements OnInit, OnDestroy {
   }
   
   onselect(item) {
-    console.log(item.idReclamation)
+    console.log(item.objet)
     //this.router.navigate(['/affichage/'+item.name]);
   }
 

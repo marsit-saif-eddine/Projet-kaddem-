@@ -30,6 +30,7 @@ export class ListUniversiteComponent implements OnInit,OnDestroy {
    }
 
   ngOnInit(): void {
+    this.UniversiteList()
     this.universiteService.RefreshRequired.subscribe(response => {
       this.UniversiteList()
     })

@@ -18,7 +18,6 @@
                                     <th>ID</th>
                                     <th>Objet</th>
                                     <th>Description</th>
-                                    <th>Etudiant</th>
                                     <th>EDIT</th>
                                     <th>DELETE</th>
                                 </thead>
@@ -34,11 +33,9 @@
                                         </td>
                                         <td>{{r.objet}}</td>
                                         <td>{{r.description}}</td>
-                                        <td *ngIf="r.etudiants.length==0">Aucun Etudiant</td>
-                                        <td *ngFor="let etud of r.etudiants">{{etud.nomEtudiant}}</td>
                                         <td class="td-actions">
-                                            <button mat-raised-button (click)="OpenPopup(u)" type="button"
-                                                matTooltip="Edit Task" [matTooltipPosition]="'above'"
+                                            <button mat-raised-button (click)="OpenPopup(r)" type="button"
+                                                matTooltip="Edit Reclamation" [matTooltipPosition]="'above'"
                                                 class="btn btn-primary btn-link btn-sm btn-just-icon">
                                                 <i class="material-icons">edit</i>
                                             </button>

@@ -35,9 +35,14 @@ export class ReclamationServiceService {
   }
   
   updateReclamation(reclamation: any) {
-     return this.http.post(this.BaseURL + this.UPDATE,reclamation).pipe(tap(() => {
+     return this.http.put(this.BaseURL + this.UPDATE,reclamation).pipe(tap(() => {
       this.RefreshRequired.next();
     }));
+  }
+
+  AddandAffectReclamationToStudent(idEtudiant: any, reclamation: any) {
+    return this.http.put("http://localhost:8088/SpringMVC/ReclamationC/AddandAffectReclamationToStudent/"+idEtudiant,reclamation)
+    
   }
   
 }
