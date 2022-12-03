@@ -49,7 +49,7 @@ export class FormUpdateContratComponent implements OnInit {
    
   onSubmit()
   {
-  this.contartService.updateContart(this.Reactiveform.value).subscribe(data=>{console.log(data)})
+  this.contartService.updateContart(this.Reactiveform.value.idContrat,this.Reactiveform.value).subscribe(data=>{console.log(data)})
   }
 
   ngOnInit() {

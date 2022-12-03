@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Contrat } from 'app/Models/contrat'; 
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 
 @Injectable({providedIn: 'root'})
@@ -17,19 +17,20 @@ export class ServiceNameService {
 export class ContratService {  
  
 
-  readonly API_URL =  "http://localhost:8088/SpringMVC/contractC" ; 
+  readonly API_URL =  "http://localhost:8089/SpringMVC/Contrat" ; 
 
-  readonly ENDPOINT_GET_CONTRAT = "/listC"
-  readonly ENDPOINT_DELETE_CONTRAT = "/delete/"
-  readonly ENDPOINT_ADD_CONTRAT = "/add" ; 
-  readonly ENDPOINT_UPDATE_CONTRAT ="/update" ; 
+  readonly ENDPOINT_GET_CONTRAT = "/GetContrat"
+  readonly ENDPOINT_DELETE_CONTRAT = "/deleteContrat/"
+  readonly ENDPOINT_ADD_CONTRAT = "/addContrat" ; 
+  readonly ENDPOINT_UPDATE_CONTRAT ="/updateContrat/" ; 
   readonly ENDPOINT_GETBYID ="/list/"
+  readonly ENDPOINT_EXPORTEXCEL="/exportContratExcel";
 
  
 
 
   
-
+  
   
 
 
@@ -38,6 +39,12 @@ export class ContratService {
   getContrat(){
     return this.httpClient.get(this.API_URL+this.ENDPOINT_GET_CONTRAT) 
   }
+
+  getExport(): Observable<Blob>{
+    return this.httpClient.get(this.API_URL+this.ENDPOINT_EXPORTEXCEL, { responseType: 'blob'})
+  }
+
+  
 
   deleteContrat(id: number){
      return this.httpClient.delete(this.API_URL+this.ENDPOINT_DELETE_CONTRAT+id)
@@ -49,9 +56,9 @@ export class ContratService {
 
   }
 
-  updateContart(c: Contrat)
+  updateContart(id:any,c: Contrat)
   {
-    return this.httpClient.put(this.API_URL+this.ENDPOINT_UPDATE_CONTRAT,c) 
+    return this.httpClient.put(this.API_URL+this.ENDPOINT_UPDATE_CONTRAT+id,c) 
   }
 
   getbyId(id:any)

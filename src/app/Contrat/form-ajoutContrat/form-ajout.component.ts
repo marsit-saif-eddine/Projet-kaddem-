@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Contrat } from 'app/Models/contrat';
 import { ContratService } from 'app/contrat/service/contrat.service';
 import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-Form-Ajout',
   templateUrl: './form-ajout.component.html',
@@ -22,10 +23,7 @@ export class FormAjoutContratComponent implements OnInit {
   {
     this.contrat.archive = false ;
     console.log(this.contrat) ;
-
-    this.contratServices.addContrat(this.contrat).subscribe(
-     () => this.dataArray.push(this.contrat) 
-    );
+    this.contratServices.addContrat(this.contrat).subscribe();
       
   }
 

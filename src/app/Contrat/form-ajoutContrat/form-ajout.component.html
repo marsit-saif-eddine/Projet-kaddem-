@@ -63,9 +63,9 @@
                             <mat-select [(ngModel)]="contrat.spec" [(value)]="selected" #spe="ngModel" required>
                               <mat-option>None</mat-option>
                               <mat-option value="IA">IA</mat-option>
-                              <mat-option value="Resaux">Resaux</mat-option>
-                              <mat-option value="Cloud">Cloud</mat-option>
-                              <mat-option value="Securite">Securite</mat-option>
+                              <mat-option value="RESEAUX">Resaux</mat-option>
+                              <mat-option value="CLOUD">Cloud</mat-option>
+                              <mat-option value="SECURITE">Securite</mat-option>
                             </mat-select>
                           </mat-form-field>
                           <div class="alert alert-danger" *ngIf="spe.invalid && spe.touched">

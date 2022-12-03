@@ -14,7 +14,7 @@
                     </div>
                   </div>
                   <div class="card-body">
-                      <div class="table-responsive">
+                      <div class="table-responsive" id="content">
                           <table class="table">
                               <thead  class=" text-primary">
                                   <th>
@@ -73,7 +73,7 @@
                                          {{item.montantContrat}}DT
                                       </td>
                                       <td >
-                                       {{item.etud}}
+                                       {{item?.etud?.nomE}} {{ item?.etud?.prenomE}}
                                        </td>
                                       <td class="td-actions">
                                         <button mat-raised-button (click)="OpenPopup(item)" type="button"  matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
@@ -94,11 +94,16 @@
                             previousLabel="Prev"
                             nextLabel="Next"
                             (pageChange)="onTableDataChange($event)"
-                            
+                      
                             >
 
                             </pagination-controls>
                           </div>
+                          <div >
+                            <a mat-raised-button   (click)="exportExcel()" class="btn btn-success pull-right">Export Excel</a>
+                          </div>
+                       
+                          
                       </div>
                   </div>
               </div>
