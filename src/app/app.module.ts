@@ -21,6 +21,9 @@ import { ListUniversiteComponent } from './Universite/list-universite/list-unive
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AddUniversiteComponent } from './Universite/add-universite/add-universite.component';
 import { UpdateUniversiteComponent } from './Universite/update-universite/update-universite.component';
+import { ListReclamationComponent } from './Reclamation/list-reclamation/list-reclamation.component';
+import { AddReclamationComponent } from './Reclamation/add-reclamation/add-reclamation.component';
+import { UpdateReclamationComponent } from './Reclamation/update-reclamation/update-reclamation.component';
 
 
 
@@ -48,7 +51,10 @@ import { UpdateUniversiteComponent } from './Universite/update-universite/update
     LoginComponent,
     ListUniversiteComponent,
     AddUniversiteComponent,
-    UpdateUniversiteComponent
+    UpdateUniversiteComponent,
+    ListReclamationComponent,
+    AddReclamationComponent,
+    UpdateReclamationComponent
 
   ],
   providers: [],

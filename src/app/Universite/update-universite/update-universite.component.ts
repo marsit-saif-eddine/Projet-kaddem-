@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UniversiteServiceService } from 'app/services/Universite/universite-service.service';
 
@@ -19,11 +19,12 @@ export class UpdateUniversiteComponent implements OnInit {
   });
   
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private universiteService: UniversiteServiceService
-    , private FormBuilder: FormBuilder, private acr: ActivatedRoute,private router:Router) { }
+    , private FormBuilder: FormBuilder, private acr: ActivatedRoute,private router:Router , private matdialog: MatDialog) { }
 
   ngOnInit(): void {
-    console.log(this.data)
-    this.formUniversite.get("idUniv").setValue(this.data)
+
+    this.formUniversite.get("idUniv").setValue(this.data.idUniv)
+    this.formUniversite.get("nomUniv").setValue(this.data.nomUniv)
 
   }
   showFormBuilder(){
@@ -33,13 +34,18 @@ export class UpdateUniversiteComponent implements OnInit {
     return this.formUniversite.get('nomUniv')
   }
   
+  
+  ClosePopup(){
+    this.matdialog.closeAll()
+  }
+  
   updateUniversite(universite: any) {
     
     this.data = this.universiteService.updateUniversite(universite).subscribe(
       data => {
         console.log(data)
       })
+    this.ClosePopup();
   }
-
 
 }
