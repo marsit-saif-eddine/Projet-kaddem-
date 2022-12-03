@@ -23,6 +23,10 @@ import {NgxPaginationModule} from 'ngx-pagination'
 import { FormAjoutContratComponent } from 'app/Contrat/form-ajoutContrat/form-ajout.component';
 import { FormUpdateContratComponent } from 'app/Contrat/form-updateContrat/form-updateContrat.component' ;
 import { affichageContratComponent } from 'app/Contrat/affichageContart/affichageContrat.component';
+import { TableListBlogComponent } from 'app/Blog/table-listBlog/table-list.component';
+import { affichageBlogComponent } from 'app/Blog/affichageBlog/affichageBlog.component';
+import { FormAjoutBlogComponent } from 'app/Blog/form-ajoutBlog/form-ajout.component';
+
 
 
 @NgModule({
@@ -53,6 +57,9 @@ import { affichageContratComponent } from 'app/Contrat/affichageContart/affichag
     FormAjoutContratComponent,
     FormUpdateContratComponent,
     affichageContratComponent,
+    TableListBlogComponent,
+    affichageBlogComponent,
+    FormAjoutBlogComponent
 
 
   ]

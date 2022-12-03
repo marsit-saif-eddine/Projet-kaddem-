@@ -10,6 +10,10 @@ import { TableListContratComponent } from 'app/Contrat/table-listContrat/table-l
 import { FormAjoutContratComponent } from 'app/Contrat/form-ajoutContrat/form-ajout.component';
 import { FormUpdateContratComponent } from 'app/Contrat/form-updateContrat/form-updateContrat.component' ;
 import { affichageContratComponent } from 'app/Contrat/affichageContart/affichageContrat.component';
+import { TableListBlogComponent } from 'app/Blog/table-listBlog/table-list.component';
+import { affichageBlogComponent } from 'app/Blog/affichageBlog/affichageBlog.component';
+import { FormAjoutBlogComponent } from 'app/Blog/form-ajoutBlog/form-ajout.component';
+
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -46,6 +50,12 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'Form-AjoutContrat',     component: FormAjoutContratComponent },
     { path: 'Form-UpdateContrat',     component: FormUpdateContratComponent },
     { path: 'affichageContrat/:id',     component: affichageContratComponent },
+    { path: 'table-listBlog',     component: TableListBlogComponent },
+    { path: 'affichageBlog/:id',     component: affichageBlogComponent },
+    { path: 'Form-AjoutBlog',     component: FormAjoutBlogComponent },
+
+
+
 
 
 

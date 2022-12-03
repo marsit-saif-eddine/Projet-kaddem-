@@ -3,8 +3,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Contrat } from 'app/Models/contrat';
 import { ContratService } from 'app/contrat/service/contrat.service';
-import { ShareServiceService } from 'app/services/share-service.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+
+
 @Component({
   selector: 'app-Form-Update',
   templateUrl: './form-updateContrat.component.html',
@@ -28,7 +31,7 @@ export class FormUpdateContratComponent implements OnInit {
  
 
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any , private contartService:ContratService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any , private contartService:ContratService, private router:Router , private matdialog:MatDialog) {
     
     
     
@@ -49,8 +52,11 @@ export class FormUpdateContratComponent implements OnInit {
    
   onSubmit()
   {
-  this.contartService.updateContart(this.Reactiveform.value.idContrat,this.Reactiveform.value).subscribe(data=>{console.log(data)})
+  this.contartService.updateContart(this.Reactiveform.value.idContrat,this.Reactiveform.value).subscribe(
+  () => window.location.reload()
+    )
   }
+  
 
   ngOnInit() {
     this.result=this.data 

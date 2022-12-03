@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Contrat } from 'app/Models/contrat';
 import { ContratService } from 'app/contrat/service/contrat.service';
 import { Subscription } from 'rxjs';
+import { BlogService } from '../service/blog.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,31 +10,31 @@ import { Router } from '@angular/router';
   templateUrl: './form-ajout.component.html',
   styleUrls: ['./form-ajout.component.css']
 })
-export class FormAjoutContratComponent implements OnInit {
-  f:Contrat
-  dataArray:  Contrat[] = [];
+export class FormAjoutBlogComponent implements OnInit {
   dataob:Subscription
-  contrat: Contrat = new Contrat; 
-  selected = 'IA';
+  blog:any ;
 
-  constructor(private contratServices: ContratService, private router:Router) {
-    this.contrat = new Contrat();
+
+  constructor(private blogservice: BlogService , private router:Router) {
    }
 
-   save()
+   save(f: any)
   {
-    this.contrat.archive = false ;
-    console.log(this.contrat) ;
-    this.contratServices.addContrat(this.contrat).subscribe(
+
+    console.log(f.value) ;
+     this.blogservice.addBlog(f.value).subscribe(
       data => {
         console.log(data)
       })
-    this.router.navigate(['/table-listContrat']);
-      
+    this.router.navigate(['/table-listBlog'])
   }
+ 
+      
+  
 
 
-  ngOnInit() {
+  ngOnInit(): void {
+
   }
 
  
