@@ -44,11 +44,9 @@
                               }; let i = index">
                                   <tr *ngIf="search=='' || item.spec.toLowerCase().includes(search)">
                                    
-                                      <td> <a style="text-decoration: none; color:black" (click)="onselect(item)">    {{item.idBlog}}
-                                         </a>
-                                        
-                                        
-                                      
+                                      <td> <a style="text-decoration: none; color:black" (click)="onselect(item)">  
+                                          {{item.idBlog}}
+                                         </a>                                      
                                       </td>
                                       <td>
                                         {{item.titre}}
@@ -56,7 +54,10 @@
                                         {{item.description}}
                                       </td>
                                       <td>
-                                        {{item.image}}
+                                        <a href="#"><img class="card-img-top img-responsive"
+                                          src = "{{this.blogservices.host+'/api/Imgarticles/'+item.id}}" 
+                                          style = "height :200px;width:fil-content"
+                                         alt=""></a>
 
                                       </td>
                                      

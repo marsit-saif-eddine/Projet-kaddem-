@@ -23,12 +23,6 @@ export class BlogService {
   readonly ENDPOINT_ADD_BLOG = "/addblog" ; 
   readonly ENDPOINT_UPDATE_BLOG ="/updateBlog/" ; 
   readonly ENDPOINT_GETBYID ="/list/"
-
- 
-
-
-  
-  
   
 
 
@@ -56,5 +50,10 @@ export class BlogService {
   getbyId(id:any)
   {
     return this.httpClient.get(this.API_URL+this.ENDPOINT_GETBYID+id)
+  }
+
+  addwithuplod(c: any)
+  {
+    return this.httpClient.post(this.API_URL+this.ENDPOINT_ADD_BLOG,c,{ observe: 'response' })
   }
 }

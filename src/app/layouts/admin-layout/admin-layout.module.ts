@@ -26,6 +26,8 @@ import { affichageContratComponent } from 'app/Contrat/affichageContart/affichag
 import { TableListBlogComponent } from 'app/Blog/table-listBlog/table-list.component';
 import { affichageBlogComponent } from 'app/Blog/affichageBlog/affichageBlog.component';
 import { FormAjoutBlogComponent } from 'app/Blog/form-ajoutBlog/form-ajout.component';
+import { FormUpdateBlogComponent } from 'app/Blog/form-updateBlog/form-updateBlog.component';
+
 
 
 
@@ -59,7 +61,9 @@ import { FormAjoutBlogComponent } from 'app/Blog/form-ajoutBlog/form-ajout.compo
     affichageContratComponent,
     TableListBlogComponent,
     affichageBlogComponent,
-    FormAjoutBlogComponent
+    FormAjoutBlogComponent,
+    FormUpdateBlogComponent,
+
 
 
   ]
