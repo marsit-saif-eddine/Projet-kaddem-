@@ -1,0 +1,114 @@
+<div class="main-content" >
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                    <div style="position:absolute">
+                      <h4 class="card-title ">Simple Table</h4>
+                      <p class="card-category"> Here is a subtitle for this table</p>
+                    
+                    </div>
+                    <div >
+                      <a mat-raised-button href="admin/Form-AjoutContrat" class="btn btn-danger pull-right">Add Something</a>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive" id="content">
+                          <table class="table">
+                              <thead  class=" text-primary">
+                                  <th>
+                                      ID
+                                  </th>
+                                  <th>
+                                      Date debut contrat
+                                  </th>
+                                  <th>
+                                    Date fin contrat
+                                  </th>
+                                  <th>
+                                      Specialité
+                                  </th>
+                                  <th>
+                                      Archive
+                                  </th>
+                                  <th>
+                                    Montant 
+                                  </th>
+                                  <th>
+                                    Etudiant en relation 
+                                  </th>
+                                  <th>
+                                    Edit
+                                </th>
+                                <th>
+                                    Remove
+                                </th>
+                              </thead>
+                              <tbody *ngFor="let item of dataArray | paginate:{
+                                itemsPerPage : tableSize,
+                                currentPage : page ,
+                                totalItems : count
+                              }; let i = index">
+                                  <tr *ngIf="search=='' || item.spec.toLowerCase().includes(search)">
+                                   
+                                      <td> <a style="text-decoration: none; color:black" (click)="onselect(item)">   {{item.idContrat}}
+                                         </a>
+                                        
+                                        
+                                      
+                                      </td>
+                                      <td>
+                                      {{item.dateDebutContrat}}
+                                      <td >
+                                        {{item.dateFinContrat}}
+                                      </td>
+                                      <td>
+                                        {{item.spec}}
+                                      </td>
+                                      <td>
+                                        {{item.archive}}
+                                      </td>
+                                      <td class="text-primary">
+                                         {{item.montantContrat}}DT
+                                      </td>
+                                      <td >
+                                       {{item?.etud?.nomE}} {{ item?.etud?.prenomE}}
+                                       </td>
+                                      <td class="td-actions">
+                                        <button mat-raised-button (click)="OpenPopup(item)" type="button"  matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                            <i class="material-icons">edit</i>
+                                        </button>
+                                    </td>
+                                    <td class="td-actions">
+                                    <button mat-raised-button type="button" (click)="deleteContart(item.idContrat)" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                                  </tr>
+                                  
+                              </tbody>
+                          </table>
+                          <div style="text-align: -webkit-center;">
+                            <pagination-controls
+                            previousLabel="Prev"
+                            nextLabel="Next"
+                            (pageChange)="onTableDataChange($event)"
+                      
+                            >
+
+                            </pagination-controls>
+                          </div>
+                          <div >
+                            <a mat-raised-button   (click)="exportExcel()" class="btn btn-success pull-right">Export Excel</a>
+                          </div>
+                       
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</div>

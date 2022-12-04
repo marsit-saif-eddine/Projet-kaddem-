@@ -1,0 +1,62 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="width: 70%;    margin: auto;
+margin-top: 10%;" class="card col text-center">
+  <div class="card-header card-header-danger">
+      <h4 class="card-title">REGISTER PAGE</h4>
+      <p class="card-category">Enter Your Details</p>
+  </div>
+<div class="card-body">
+<form style="text-align: -webkit-center;" [formGroup]="form" (ngSubmit)="ajoutEtudiant()">
+    
+  
+    <div class="inputGroup inputGroup1">
+      
+      <mat-form-field style="width: 50%;" class="example-full-width">
+      <input matInput  placeholder="UserName" type="text" id="email" name="userName"  class="email" maxlength="256" required/>
+    </mat-form-field>
+      
+    </div>
+    <div class="inputGroup inputGroup2">
+      
+      <mat-form-field style="width: 50%;" class="example-full-width">
+      <input matInput  placeholder="UserName" type="text" id="email" name="FirstName"  class="email" maxlength="256" required/>
+    </mat-form-field>
+      
+    </div>
+    <div class="inputGroup inputGroup3">
+      
+      <mat-form-field style="width: 50%;" class="example-full-width">
+      <input matInput  placeholder="UserName" type="text" id="email" name="lastN"  class="email" maxlength="256" required/>
+    </mat-form-field>
+  </div>
+  <!-- <div class="inputGroup inputGroup8">
+  <mat-form-field appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div> -->
+
+  <div class="inputGroup inputGroup3">
+      
+    <mat-form-field style="width: 50%;" class="example-full-width">
+      <input matInput placeholder="Password" formControlName="password" [errorStateMatcher]="passwordErrorMatcher"/>
+      <mat-error>Error: {{ getErrorMessage('password') }}</mat-error>
+      </mat-form-field>
+</div>
+<div class="inputGroup inputGroup3">
+      
+  <mat-form-field style="width: 50%;" class="example-full-width">
+    <input matInput placeholder="Confirm" formControlName="confirm" [errorStateMatcher]="confirmErrorMatcher"/>
+    <mat-error>Error: {{ getErrorMessage('confirm') }}</mat-error>
+    </mat-form-field>
+</div>
+
+    <div class="inputGroup inputGroup7 col text-center">
+      <button mat-raised-button id="login" type="submit" class="btn btn-danger " >Log in</button>
+    </div>
+  </form>
+</div>
+</div>

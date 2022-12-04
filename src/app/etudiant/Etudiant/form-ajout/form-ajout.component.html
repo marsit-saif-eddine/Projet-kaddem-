@@ -1,0 +1,76 @@
+<div class="main-content">
+
+  <div class="">
+      
+          <div class="card">
+              <div class="card-header card-header-danger">
+                  <h4 class="card-title"  >Ajout Etudiant</h4>
+                  <p class="card-category"  >Complete the details</p>
+              </div>
+              <div class="card-body">
+                  <form #f="ngForm" (ngSubmit)="get(f)">
+                    
+                      <div class="col-md-3">
+                        
+                        
+                              <mat-form-field class="example-full-width">
+                                <input  matInput  name="opt" placeholder="option"  ngModel type="text">
+                             
+                              
+                              </mat-form-field>
+                          </div>
+                         
+                      
+                      <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                          <input matInput name="d" placeholder="date de naissance"  ngModel type="date"  >
+                         
+                        </mat-form-field>
+                    </div>
+                  
+                      
+                          
+                            <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                <input matInput name="idEtudiant" #body="ngModel" ngModel placeholder="Username" type="text" required minlength="3"  #t="ngModel">
+                                <div *ngIf="t.invalid">
+                                  <app-errors [validator]="t"></app-errors>
+                                </div>
+                              </mat-form-field>
+                            </div>
+                            <div class="col-md-3 ">
+                            <mat-form-field class="example-full-width">
+                              <input matInput name="prenomE" #body="ngModel" ngModel placeholder="prenom Etudiant" type="text" required minlength="3"  #a="ngModel">
+                              <div *ngIf="a.invalid">
+                                <app-errors [validator]="a"></app-errors>
+                              </div>
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput name="nomE" placeholder="nom Etudiant" ngModel type="text" required minlength="3"  #z="ngModel">
+                              <div *ngIf="z.invalid">
+                                <app-errors [validator]="z"></app-errors>
+                              </div>
+                            </mat-form-field>
+                          </div>
+                          
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput name="userPassword" #body="ngModel" ngModel placeholder="Password" type="text" required minlength="3"  #b="ngModel">
+                              <div *ngIf="b.invalid">
+                                <app-errors [validator]="b"></app-errors>
+                              </div>
+                            </mat-form-field>
+                          </div>
+                                                                                            
+                      <button mat-raised-button type="submit" class="btn btn-danger pull-right" [ngClass]="{ disabled : f.invalid }">add Profile</button>
+                      <div class="clearfix"></div>
+                  </form>
+              </div>
+          </div>
+      
+      
+  </div>
+
+</div>

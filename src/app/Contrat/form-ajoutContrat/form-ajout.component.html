@@ -1,0 +1,88 @@
+<div class="main-content">
+
+  <div class="">
+      
+          <div class="card">
+              <div class="card-header card-header-danger">
+                  <h4 class="card-title">Ajouter contart</h4>
+                  <p class="card-category">Complete your profile</p>
+              </div>
+              <div class="card-body">
+                  <form #f="ngForm">
+                      <div class="row">
+                          <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Ajouter un contart" disabled>
+                              </mat-form-field>
+                          </div>
+                        
+                      </div>
+                      <div class="row">
+                          <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                              <input matInput name="dateDebutContrat"  [(ngModel)]="contrat.dateDebutContrat" #deb="ngModel" placeholder="Date debut" type="date" required>
+                            </mat-form-field>
+                            <div class="alert alert-danger" *ngIf="deb.invalid && deb.touched">
+                              date debut is required
+                            </div>
+                          </div>
+                          
+                      </div>
+                      <div class="row">
+                          <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                              <input matInput name="dateFinContrat" #dateFin="ngModel" [(ngModel)]="contrat.dateFinContrat" placeholder="Date fin" type="date" required>
+                            </mat-form-field>
+                            <div class="alert alert-danger" *ngIf="dateFin.invalid && dateFin.touched">
+                              date fin is required
+                            </div>
+                            <div class="alert alert-danger" *ngIf="dateFin.value<=deb.value">
+                              date fin < date deb
+                            </div>
+                            
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                              <input matInput name="montantContart" [(ngModel)]="contrat.montantContrat" #mon="ngModel" placeholder="Montant" type="number" required>
+                            </mat-form-field>
+                            <div class="alert alert-danger" *ngIf="mon.invalid && mon.touched">
+                              montant is required
+                            </div>
+                            <div class="alert alert-danger" *ngIf="mon.value<=0">
+                              montant ne peut pas etre <0
+                            </div>
+                          </div>
+                      </div>
+                      
+                      <div class="row">
+                        <div class="col-md-12">
+                          <mat-form-field appearance="fill">
+                            <mat-label>Choisir une specialite</mat-label>
+                            <mat-select [(ngModel)]="contrat.spec" [(value)]="selected" #spe="ngModel" required>
+                              <mat-option>None</mat-option>
+                              <mat-option value="IA">IA</mat-option>
+                              <mat-option value="RESEAUX">Resaux</mat-option>
+                              <mat-option value="CLOUD">Cloud</mat-option>
+                              <mat-option value="SECURITE">Securite</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <div class="alert alert-danger" *ngIf="spe.invalid && spe.touched">
+                            specialite is required
+                          </div>
+                        </div>
+                    </div>
+
+                      <button mat-raised-button type="submit"  href="/table-listContrat" class="btn btn-danger pull-right" (click)="save()" [disabled]="f.invalid || mon.value<=0 || dateFin.value<=deb.value" >Ajouter contrat</button>
+                      <div class="clearfix"></div>
+                  </form>
+              </div>
+          </div>
+      
+      
+  </div>
+
+</div>
+
+

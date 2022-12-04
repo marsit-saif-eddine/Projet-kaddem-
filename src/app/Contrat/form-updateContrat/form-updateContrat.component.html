@@ -1,0 +1,86 @@
+<div class="main-content">
+
+      <div class="">
+          
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Edit Contrat</h4>
+                      <p class="card-category"></p>
+                  </div>
+                  <div class="card-body">
+                      <form [formGroup]="Reactiveform" (ngSubmit)="onSubmit()">
+                          <div class="row">
+                              <div class="col-md-12">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="veuillez modifier le contrat" disabled>
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput name="dateDebutContrat"  type="date" formControlName="dateDebutContrat">
+                                </mat-form-field>
+                                <div class="alert alert-danger" *ngIf="Reactiveform.controls['dateDebutContrat'].errors && Reactiveform.controls['dateDebutContrat'].touched ">
+                                  date debut is required
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput name="dateFinContrat" type="date" formControlName="dateFinContrat">
+                                </mat-form-field>
+                                <div class="alert alert-danger" *ngIf="Reactiveform.controls['dateFinContrat'].errors && Reactiveform.controls['dateFinContrat'].touched ">
+                                  date fin is required
+                                </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-12">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="montantContrat" name="montantContrat" type="number" formControlName="montantContrat">
+                                </mat-form-field>
+                                <div class="alert alert-danger" *ngIf="Reactiveform.controls['montantContrat'].errors && Reactiveform.controls['montantContrat'].touched ">
+                                  montant is required
+                                </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <mat-form-field appearance="fill">
+                                <mat-label>Changer l'etat d'archive</mat-label>
+                                <mat-select  formControlName="archive" required>
+                                  <mat-option value="false">False</mat-option>
+                                  <mat-option value="true">True</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                              <div class="alert alert-danger" *ngIf="Reactiveform.controls['archive'].errors && Reactiveform.controls['archive'].touched ">
+                                archive is required
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <mat-form-field appearance="fill">
+                                <mat-label>Choisir une specialite</mat-label>
+                                <mat-select  formControlName="spec" required>
+                                  <mat-option value="IA">IA</mat-option>
+                                  <mat-option value="RESEAUX">Resaux</mat-option>
+                                  <mat-option value="CLOUD">Cloud</mat-option>
+                                  <mat-option value="SECURITE">Securite</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                              <div class="alert alert-danger" *ngIf="Reactiveform.controls['spec'].errors && Reactiveform.controls['spec'].touched ">
+                                specialite is required
+                              </div>
+                            </div>
+                          </div>
+                          <button mat-raised-button type="submit" [disabled]="Reactiveform.invalid" class="btn btn-danger pull-right">Update Contrat</button>
+                          <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+          
+          
+      </div>
+
+</div>

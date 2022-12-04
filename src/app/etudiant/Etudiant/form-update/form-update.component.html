@@ -1,0 +1,52 @@
+<div class="main-content">
+
+      <div class="">
+          
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Edit Profile</h4>
+                      <p class="card-category">Complete your profile</p>
+                  </div>
+                  <div class="card-body">
+                      <form [formGroup]="Reactiveform" (ngSubmit)="putetudiant()">
+                          <div class="row">
+                           
+                              <div class="col-md-5">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="opt " disabled formControlName="opt"required>
+                                  </mat-form-field>
+                                  <span *ngIf="Reactiveform.get('opt').errors" class="font-small-2 text-danger"> Invalid input</span>
+                              </div>
+                            
+                              <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="d" type="date" formControlName="d" required>
+                                  </mat-form-field>
+                                  <span *ngIf="Reactiveform.get('d').errors" class="font-small-2 text-danger"> Invalid input</span>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput name="body"  placeholder="prenomE" type="text" formControlName="prenomE" required minlength="3">
+                                </mat-form-field>
+                                <span *ngIf="Reactiveform.get('d').errors" class="font-small-2 text-danger"> Invalid input</span>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="nomE" type="text" formControlName="nomE" required minlength="3">
+                                </mat-form-field>
+                                <span *ngIf="Reactiveform.get('d').errors" class="font-small-2 text-danger"> Invalid input</span>
+                              </div>
+                          </div>
+                    
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+                          <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+          
+          
+      </div>
+
+</div>

@@ -1,0 +1,47 @@
+<div class="main-content">
+
+      <div class="">
+          
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                    <div>
+                      <h4 class="card-title">Edit Profile</h4>
+                      <p class="card-category">Complete your profile</p>
+                    </div>
+                      <div >
+                        <a mat-raised-button href="admin/listequipe" class="btn btn-danger pull-right">Return to equipes</a>
+                      </div>
+                  </div>
+                  <div class="card-body">
+                      <form [formGroup]="Reactiveform" (ngSubmit)="putequipe()">
+                          <div class="row">
+                             
+                              <div class="col-md-3">
+                                  <mat-form-field class="example-full-width">
+                                    <input  matInput name="id"  placeholder="idDetailEquipe" formControlName="idDetailEquipe">
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="salle"  formControlName="salle" >
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="thematique"  formControlName="thematique" >
+                                </mat-form-field>
+                            </div>
+                          </div>
+                          
+                         
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+                          <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+          
+          
+      </div>
+
+</div>
+

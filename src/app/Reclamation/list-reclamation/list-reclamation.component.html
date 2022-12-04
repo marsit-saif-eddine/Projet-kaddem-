@@ -1,0 +1,65 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <div style="position:absolute">
+                            <h4 class="card-title ">Reclamations List</h4>
+                        </div>
+                        <div>
+                            <a mat-raised-button href="admin/addReclamation" class="btn btn-danger pull-right">Add Reclamation</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>ID</th>
+                                    <th>Objet</th>
+                                    <th>Description</th>
+                                    <th>EDIT</th>
+                                    <th>DELETE</th>
+                                </thead>
+                                <tbody *ngFor="let r of reclamations | paginate:{
+                                itemsPerPage : tableSize,
+                                currentPage : page ,
+                                totalItems : count
+                                }; let i = index">
+                                    <tr *ngIf="search=='' || r.description.toLowerCase().includes(search)">
+                                        <td>
+                                            <a style="text-decoration: none; color:black" (click)="onselect(r)">
+                                                {{r.idReclamation}}</a>
+                                        </td>
+                                        <td>{{r.objet}}</td>
+                                        <td>{{r.description}}</td>
+                                        <td class="td-actions">
+                                            <button mat-raised-button (click)="OpenPopup(r)" type="button"
+                                                matTooltip="Edit Reclamation" [matTooltipPosition]="'above'"
+                                                class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">edit</i>
+                                            </button>
+                                        </td>
+                                        <td class="td-actions">
+                                            <button mat-raised-button type="button" (click)="deleteRecByid(r.idReclamation) "
+                                                matTooltip="Remove" [matTooltipPosition]="'above'"
+                                                class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">close</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div style="text-align: -webkit-center;">
+                                <pagination-controls previousLabel="Prev" nextLabel="Next"
+                                    (pageChange)="onTableDataChange($event)">
+                                </pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

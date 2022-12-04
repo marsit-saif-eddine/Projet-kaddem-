@@ -1,0 +1,58 @@
+<div class="main-content">
+
+      <div class="">
+          
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Modifier Departement{{result}}</h4>
+                      <p class="card-category">Remplir les champs</p>
+                  </div>
+                  <div class="card-body">
+                      <form [formGroup]="Reactiveform" (submit)="onSubmit()">
+                          <div class="row">
+                              
+                              <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input  matInput name="nomDepart"  placeholder="Nom Departement" formControlName="nomDepart">
+                                  </mat-form-field>
+                                  <div class="alert alert-danger" *ngIf="Reactiveform.controls['nomDepart'].errors && Reactiveform.controls['nomDepart'].touched ">
+                                    ce champ est obligatoire
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="  adresse Email" name="emailDepart"type="email" formControlName="emailDepart">
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput   placeholder="Adresse" type="text" name="adresse"formControlName="adresse">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="numero Departement" type="int" name="numDepart" formControlName="numDepart">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-12">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Code Postal" type="text"name="codepostal" formControlName="codepostal">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                         
+                          
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Modifier Departement</button>
+                          <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+          
+          
+      </div>
+
+</div>

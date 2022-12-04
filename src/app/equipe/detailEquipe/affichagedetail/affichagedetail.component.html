@@ -1,0 +1,39 @@
+<div class="main-content">
+
+      <div class="">
+          
+              <div class="card">
+                <br>
+                  <div >
+                    
+                      <h4  [ngClass]="'title'">my detail</h4>
+                      
+                   
+                  </div>
+                  <br>
+                  
+                  <div class="card-body">
+                    <label  [ngStyle]="{'font-size.px':size}" >id:</label>
+                    <div>
+                    {{dataArray.idDetailEquipe}}
+                  </div>
+                  <br>
+                  <label [ngStyle]="{'font-size.px':size}">salle:</label>
+                  <div >
+                    {{dataArray.salle}}
+                  </div>
+                  <br>
+                  <label [ngStyle]="{'font-size.px':size}">thematique:</label>
+                  <div>
+                    {{dataArray.thematique}}
+                  </div>
+                  </div>
+                  <div >
+                    <a mat-raised-button href="admin/listequipe" class="btn btn-danger pull-right">Return to equipes</a>
+                  </div>
+              </div>
+          
+          
+      </div>
+
+</div>
