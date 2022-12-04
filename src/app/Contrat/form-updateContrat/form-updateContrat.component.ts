@@ -44,6 +44,7 @@ export class FormUpdateContratComponent implements OnInit {
     montantContrat: new FormControl("",Validators.required),
     archive: new FormControl("",Validators.required),
     spec: new FormControl("",Validators.required),
+    etud: new FormControl(),
 
 
 
@@ -67,6 +68,7 @@ export class FormUpdateContratComponent implements OnInit {
       montantContrat:this.result.montantContrat,
       archive:this.result.archive,
       spec:this.result.spec,
+      etud:this.result.etud,
       
     })
 

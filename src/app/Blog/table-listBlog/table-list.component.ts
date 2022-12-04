@@ -29,6 +29,7 @@ export class TableListBlogComponent implements OnInit,OnDestroy {
   page : number =1;
   tableSize : number =5;
   tableSizes : any = [5 , 10 , 15 , 20];
+  blogservices: BlogService;
 
 
   constructor(private  blogservice: BlogService,private share:ShareServiceService, private router:Router,private matdialog:MatDialog) {

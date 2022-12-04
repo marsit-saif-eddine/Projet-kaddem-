@@ -17,6 +17,8 @@ export class BlogService {
  
 
   readonly API_URL =  "http://localhost:8089/SpringMVC/Blog" ; 
+  host :string = "http://localhost:8089";
+  
 
   readonly ENDPOINT_GET_BLOG = "/listblog"
   readonly ENDPOINT_DELETE_BLOG = "/deleteblog/"
@@ -41,6 +43,7 @@ export class BlogService {
     return this.httpClient.post(this.API_URL+this.ENDPOINT_ADD_BLOG,c)
 
   }
+ 
 
   updateBlog(id:any,c: any)
   {

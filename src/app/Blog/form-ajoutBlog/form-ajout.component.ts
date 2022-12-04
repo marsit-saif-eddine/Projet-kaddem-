@@ -30,7 +30,7 @@ export class FormAjoutBlogComponent implements OnInit {
     const blog = f.value ; 
     formData.append('blog',JSON.stringify(blog));
     formData.append('file',this.userFile);   
-    console.log(f.value);
+    console.log(formData);
     this.blogservice.addBlog(formData).subscribe(
     data => {
     console.log(data)

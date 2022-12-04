@@ -42,7 +42,7 @@
                                 currentPage : page ,
                                 totalItems : count
                               }; let i = index">
-                                  <tr *ngIf="search=='' || item.spec.toLowerCase().includes(search)">
+                                  <tr *ngIf="search=='' || item.titre.toLowerCase().includes(search)">
                                    
                                       <td> <a style="text-decoration: none; color:black" (click)="onselect(item)">  
                                           {{item.idBlog}}
@@ -53,14 +53,10 @@
                                       <td >
                                         {{item.description}}
                                       </td>
-                                      <td>
-                                        <a href="#"><img class="card-img-top img-responsive"
-                                          src = "{{this.blogservices.host+'/api/Imgarticles/'+item.id}}" 
-                                          style = "height :200px;width:fil-content"
-                                         alt=""></a>
-
-                                      </td>
-                                     
+                                      <td><a href="#"><img class="card-img-top img-responsive"
+                                        [src] = "this.blogservice.host+'/SpringMVC/Blog/Imgarticles/'+item.idBlog" 
+                                        style = "height :200px;width:250px"
+                                       alt=""></a></td>
                                       
                                       <td class="td-actions">
                                         <button mat-raised-button (click)="OpenPopup(item)" type="button"  matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">

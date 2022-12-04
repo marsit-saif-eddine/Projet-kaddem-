@@ -11,9 +11,10 @@ import { Subscription } from 'rxjs';
 })
 export class affichageComponent implements OnInit {
 
- id=''
+  id=''
   dataArray:any
   dataob:Subscription
+
   constructor(private share:ShareServiceService, private route:ActivatedRoute) {
     this.route.params.subscribe(data=>this.id=data.id)
     this.share.getoneetudiant(this.id).subscribe(response=>this.dataArray=response)

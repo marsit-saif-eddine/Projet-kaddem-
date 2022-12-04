@@ -16,7 +16,7 @@ export class affichageBlogComponent implements OnInit {
   dataArray:any
   dataob:Subscription
 
-  constructor(private share:BlogService, private route:ActivatedRoute) {
+  constructor(public share:BlogService, private route:ActivatedRoute) {
     this.route.params.subscribe(data=>this.id=data.id)
     this.share.getbyId(this.id).subscribe(response=>this.dataArray=response)
     

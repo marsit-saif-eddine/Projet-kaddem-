@@ -36,7 +36,7 @@ export class FormUpdateBlogComponent implements OnInit {
    
    Reactiveform=new FormGroup({
     titre:new FormControl("",Validators.required),
-    description:new FormControl("",Validators.required),
+    description:new FormControl("",[Validators.required, Validators.minLength(20)]),
     image: new FormControl(""),
     idBlog: new FormControl(""),
 
