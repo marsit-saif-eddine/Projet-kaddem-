@@ -6,21 +6,22 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ContratService } from 'app/contrat/service/contrat.service';
 import { Contrat } from 'app/Models/contrat';
-import { FormUpdateContratComponent } from '../form-updateContrat/form-updateContrat.component';
 //import { FormUpdateComponent } from '../form-update/form-update.component';
 import { ngxCsv } from 'ngx-csv/ngx-csv';
-import { FormUpdateAffectationComponent } from '../form-updateAffectation/form-updateAffectation.component';
+import { BlogService } from '../service/blog.service';
+import { FormUpdateBlogComponent } from '../form-updateBlog/form-updateBlog.component';
+import { MatCardModule } from '@angular/material/card' 
 
 
 
 @Component({
   selector: 'app-table-list',
-  templateUrl: './table-list.component.html',
-  styleUrls: ['./table-list.component.css']
+  templateUrl: './table-listBlogFront.component.html',
+  styleUrls: ['./table-listBlogFront.component.css']
 })
-export class TableListContratComponent implements OnInit,OnDestroy {
+export class TableListFrontComponent implements OnInit,OnDestroy {
   search:String = ''
-  dataArray: Contrat[] 
+  dataArray: any
   dataob:Subscription
   dataobnb:Subscription
   subscriptions = new Subscription()
@@ -29,9 +30,13 @@ export class TableListContratComponent implements OnInit,OnDestroy {
   page : number =1;
   tableSize : number =5;
   tableSizes : any = [5 , 10 , 15 , 20];
+  blogservices: BlogService;
+  longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
+  from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
+  originally bred for hunting.`;
 
 
-  constructor(private  contartService: ContratService,private share:ShareServiceService, private router:Router,private matdialog:MatDialog) {
+  constructor(private  blogservice: BlogService,private share:ShareServiceService, private router:Router,private matdialog:MatDialog) {
     this.ContratList();
    
 
@@ -39,52 +44,27 @@ export class TableListContratComponent implements OnInit,OnDestroy {
 
    
 
-   exportExcel(){
-    var options = { 
-      fieldSeparator: ',',
-      quoteStrings: '"',
-      decimalseparator: '.',
-      showLabels: true, 
-      showTitle: true,
-      title: 'List contrats',
-      useBom: true,
-      headers: ["ID", "Date debut", "Date fin" ,"Option","Archive","montant","Etudiant"]
-    };
-    
-    new ngxCsv(this.dataArray, "Contrats", options);
-   }
-
- 
- 
-
   deleteContart(id: any)
   {
     console.log(id) ;
     //principe de call back fi wost l subscribe
-    this.contartService.deleteContrat(id).subscribe(() => this.dataArray = this.dataArray.filter(Contrat => Contrat.idContrat != id),
+    this.blogservice.deleteBlog(id).subscribe(() => this.dataArray = this.dataArray.filter(dataArray => dataArray.idBlog != id),
     error => { console.log("Message d'erreur")}
     );
     
   }
 
   onselect(item){
-    this.router.navigate(['/affichageContrat/'+item.idContrat]);
+    this.router.navigate(['/affichageBlog/'+item.idBlog]);
   }
   OpenPopup(item){
     console.log(item);
-    this.matdialog.open(FormUpdateContratComponent,{
-     data:item
-   })
-  }
-
-  OpenPopup2(item){
-    console.log(item);
-    this.matdialog.open(FormUpdateAffectationComponent,{
+    this.matdialog.open(FormUpdateBlogComponent,{
      data:item
    })
   }
   ContratList():void{
-    this.contartService.getContrat().subscribe(
+    this.blogservice.getBlog().subscribe(
       (data: any) => {
          this.dataArray = data;
       });

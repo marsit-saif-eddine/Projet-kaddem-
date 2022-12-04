@@ -27,6 +27,9 @@ import { TableListBlogComponent } from 'app/Blog/table-listBlog/table-list.compo
 import { affichageBlogComponent } from 'app/Blog/affichageBlog/affichageBlog.component';
 import { FormAjoutBlogComponent } from 'app/Blog/form-ajoutBlog/form-ajout.component';
 import { FormUpdateBlogComponent } from 'app/Blog/form-updateBlog/form-updateBlog.component';
+import { TableListFrontComponent } from 'app/Blog/table-listFront/table-listBlogFront.component';
+import { FormUpdateAffectationComponent } from 'app/Contrat/form-updateAffectation/form-updateAffectation.component';
+
 
 
 
@@ -63,6 +66,8 @@ import { FormUpdateBlogComponent } from 'app/Blog/form-updateBlog/form-updateBlo
     affichageBlogComponent,
     FormAjoutBlogComponent,
     FormUpdateBlogComponent,
+    TableListFrontComponent,
+    FormUpdateAffectationComponent,
 
 
 

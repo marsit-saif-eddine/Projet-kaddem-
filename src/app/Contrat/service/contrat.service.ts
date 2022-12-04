@@ -18,13 +18,15 @@ export class ContratService {
  
 
   readonly API_URL =  "http://localhost:8089/SpringMVC/Contrat" ; 
+  readonly get_etudiant ="http://localhost:8089/SpringMVC/Etudiant/GetEtudiant";
 
   readonly ENDPOINT_GET_CONTRAT = "/GetContrat"
   readonly ENDPOINT_DELETE_CONTRAT = "/deleteContrat/"
   readonly ENDPOINT_ADD_CONTRAT = "/addContrat" ; 
   readonly ENDPOINT_UPDATE_CONTRAT ="/updateContrat/" ; 
   readonly ENDPOINT_GETBYID ="/list/"
-  readonly ENDPOINT_EXPORTEXCEL="/exportContratExcel";
+  readonly ENDPOINT_AFFECTER="/affecter_contrat_etudiant/";
+ 
 
  
 
@@ -40,9 +42,7 @@ export class ContratService {
     return this.httpClient.get(this.API_URL+this.ENDPOINT_GET_CONTRAT) 
   }
 
-  getExport(): Observable<Blob>{
-    return this.httpClient.get(this.API_URL+this.ENDPOINT_EXPORTEXCEL, { responseType: 'blob'})
-  }
+
 
   
 
@@ -64,5 +64,14 @@ export class ContratService {
   getbyId(id:any)
   {
     return this.httpClient.get(this.API_URL+this.ENDPOINT_GETBYID+id)
+  }
+  getEtudiant()
+  {
+    return this.httpClient.get(this.get_etudiant);
+  }
+
+  affectEtudiant(id:any,nomE:any,prenomE:any)
+  {
+    return this.httpClient.put(this.API_URL+this.ENDPOINT_AFFECTER+id+"/"+nomE+"/"+prenomE,nomE)
   }
 }

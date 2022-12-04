@@ -14,6 +14,8 @@ import { TableListBlogComponent } from 'app/Blog/table-listBlog/table-list.compo
 import { affichageBlogComponent } from 'app/Blog/affichageBlog/affichageBlog.component';
 import { FormAjoutBlogComponent } from 'app/Blog/form-ajoutBlog/form-ajout.component';
 import { FormUpdateBlogComponent } from 'app/Blog/form-updateBlog/form-updateBlog.component';
+import { TableListFrontComponent } from 'app/Blog/table-listFront/table-listBlogFront.component';
+import { FormUpdateAffectationComponent } from 'app/Contrat/form-updateAffectation/form-updateAffectation.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -54,7 +56,10 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'table-listBlog',     component: TableListBlogComponent },
     { path: 'affichageBlog/:id',     component: affichageBlogComponent },
     { path: 'Form-AjoutBlog',     component: FormAjoutBlogComponent },
-    { path: 'admin/Form-updateBlog', component: FormUpdateBlogComponent}
+    { path: 'admin/Form-updateBlog', component: FormUpdateBlogComponent},
+    { path: 'Fronttable-listContrat',     component: TableListFrontComponent },
+    { path: 'admin/Form-ajoutAfect',     component: FormUpdateAffectationComponent },
+
 
 
 
