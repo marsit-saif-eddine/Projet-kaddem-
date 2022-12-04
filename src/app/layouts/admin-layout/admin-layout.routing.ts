@@ -8,7 +8,6 @@ import { FormUpdateComponent } from 'app/Etudiant/form-update/form-update.compon
 import { affichageComponent } from 'app/Etudiant/affichage/affichage.component';
 import { ListUniversiteComponent } from 'app/Universite/list-universite/list-universite.component';
 import { AddUniversiteComponent } from 'app/Universite/add-universite/add-universite.component';
-import { UpdateUniversiteComponent } from 'app/Universite/update-universite/update-universite.component';
 import { ListReclamationComponent } from 'app/Reclamation/list-reclamation/list-reclamation.component';
 import { AddReclamationComponent } from 'app/Reclamation/add-reclamation/add-reclamation.component';
 

@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ReclamationServiceService } from 'app/services/Reclamation/reclamation-service.service';
 import { Subscription } from 'rxjs';
+import { DetailReclamationComponent } from '../detail-reclamation/detail-reclamation.component';
 import { UpdateReclamationComponent } from '../update-reclamation/update-reclamation.component';
 
 @Component({
@@ -66,7 +67,9 @@ export class ListReclamationComponent implements OnInit, OnDestroy {
   
   onselect(item) {
     console.log(item.objet)
-    //this.router.navigate(['/affichage/'+item.name]);
+     this.matdialog.open(DetailReclamationComponent,{
+      data:item
+    })
   }
 
   OpenPopup(item){

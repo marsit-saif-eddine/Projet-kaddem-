@@ -24,6 +24,7 @@ import { UpdateUniversiteComponent } from './Universite/update-universite/update
 import { ListReclamationComponent } from './Reclamation/list-reclamation/list-reclamation.component';
 import { AddReclamationComponent } from './Reclamation/add-reclamation/add-reclamation.component';
 import { UpdateReclamationComponent } from './Reclamation/update-reclamation/update-reclamation.component';
+import { DetailReclamationComponent } from './Reclamation/detail-reclamation/detail-reclamation.component';
 
 
 
@@ -54,7 +55,8 @@ import { UpdateReclamationComponent } from './Reclamation/update-reclamation/upd
     UpdateUniversiteComponent,
     ListReclamationComponent,
     AddReclamationComponent,
-    UpdateReclamationComponent
+    UpdateReclamationComponent,
+    DetailReclamationComponent
 
   ],
   providers: [],

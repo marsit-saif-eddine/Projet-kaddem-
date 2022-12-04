@@ -32,7 +32,7 @@
                                                 {{r.idReclamation}}</a>
                                         </td>
                                         <td>{{r.objet}}</td>
-                                        <td>{{r.description}}</td>
+                                        <td> <a style="text-decoration: none; color:black" (click)="onselect(r)">Click to view description</a></td>
                                         <td class="td-actions">
                                             <button mat-raised-button (click)="OpenPopup(r)" type="button"
                                                 matTooltip="Edit Reclamation" [matTooltipPosition]="'above'"
