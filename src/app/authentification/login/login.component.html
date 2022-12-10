@@ -141,9 +141,14 @@ margin-top: 10%;" class="card col text-center">
       <input matInput placeholder="Password" type="password" id="password" name="userPassword" [(ngModel)]="loginObject.userPassword" class="password" required/>
       </mat-form-field>
     </div>
+   
     <div class="inputGroup inputGroup3 col text-center">
       <button mat-raised-button id="login" type="submit" class="btn btn-danger " [disabled]="loginForm.invalid">Log in</button>
     </div>
+    <div class="inputGroup inputGroup3 col text-center">
+      <a mat-raised-button id="login" href="/register" class="btn btn-danger " >Create Account</a>
+    
+  </div>
   </form>
 </div>
 </div>

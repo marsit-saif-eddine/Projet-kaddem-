@@ -31,6 +31,12 @@ export class userAuthService {
  public isLoggedIn(){
   return this.gtRoles() && this.getToken();
  }
+ public setUser(user:[]){
+  return localStorage.setItem("profile",JSON.stringify(user));
+ }
+ public getUser():[]{
+  return JSON.parse(localStorage.getItem("profile"));
+ }
 
    }
 

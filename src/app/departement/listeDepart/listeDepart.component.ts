@@ -9,6 +9,7 @@ import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 import { DepartServiceService } from '../service/depart-service.service';
 import { DeleteDialogCompnent } from './delete-dialog/delete-dialog.component';
 import { SharedServiceService } from 'app/services/shared-service.service';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 
 
@@ -28,16 +29,52 @@ export class listeDepartComponent implements OnInit,OnDestroy {
   page : number =1;
   tableSize : number =7;
   tableSizes : any = [5 , 10 , 15 , 20];
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  horizontalPosition: MatSnackBarHorizontalPosition='center';
+  notifType='added Succefully'
+  
+
+
 
 
   constructor(private depart:DepartServiceService,
-     private router:Router,private matdialog:MatDialog, private share:ShareServiceService, private ss:SharedServiceService)  {
+     private router:Router,private matdialog:MatDialog, private share:ShareServiceService, private ss:SharedServiceService
+     ,private _snackbar:MatSnackBar)  {
    
    
 
    }
+   ngOnInit() {
+    this.departliste();
+
+    this.ss.reloadDepartmentsList.subscribe({ 
+      next:(value)=>{
+        if(value) {
+          this.departliste()
+          this.showNotif()
+        }
+      }
+    })
+    let sub = this.share.searchText$.subscribe(data=>{
+      this.search=data;
+// console.log(this.search);
+     })
+     this.subscriptions.add(sub)
+    
+  }
+
+  showNotif(){
+    console.log("test notif");
+    
+    this._snackbar.open('Departement',this.notifType,{
+      verticalPosition:this.verticalPosition,
+      horizontalPosition:this.horizontalPosition
+
+    })
+  }
  getid(idDepart){
 
+this.notifType='Deleted'
   this.matdialog.open(DeleteDialogCompnent,{
     data: {id:idDepart,type:"Departement"}
   })
@@ -47,9 +84,11 @@ export class listeDepartComponent implements OnInit,OnDestroy {
     // })
   }
   onselect(item){
-    this.router.navigate(['/affichageDepart/'+item.idDepart]);
+    this.router.navigate(['admin/affichageDepart/'+item.idDepart]);
   }
   OpenPopup(item){
+    this.notifType='updated'
+
     this.matdialog.open(updateDepartComponent,{
       data:item
     })
@@ -94,20 +133,9 @@ export class listeDepartComponent implements OnInit,OnDestroy {
   }
 
 
-  ngOnInit() {
-    this.departliste();
-    this.ss.reloadDepartmentsList.subscribe({ 
-      next:(value)=>{
-        if(value)  this.departliste()
-      }
-    })
-    let sub = this.share.searchText$.subscribe(data=>{
-      this.search=data;
-// console.log(this.search);
-     })
-     this.subscriptions.add(sub)
-    
-  }
+
+
+
   ngOnDestroy(){
     this.subscriptions.unsubscribe()
   }

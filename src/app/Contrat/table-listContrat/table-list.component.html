@@ -44,6 +44,9 @@
                                 <th>
                                     Remove
                                 </th>
+                                <th>
+                                  Affectation 
+                              </th>
                               </thead>
                               <tbody *ngFor="let item of dataArray | paginate:{
                                 itemsPerPage : tableSize,
@@ -79,12 +82,18 @@
                                         <button mat-raised-button (click)="OpenPopup(item)" type="button"  matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
                                             <i class="material-icons">edit</i>
                                         </button>
-                                    </td>
+                                       </td>
                                     <td class="td-actions">
                                     <button mat-raised-button type="button" (click)="deleteContart(item.idContrat)" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
                                         <i class="material-icons">close</i>
                                     </button>
-                                </td>
+                                      </td>
+
+                                      <td class="td-actions">
+                                        <button mat-raised-button (click)="OpenPopup2(item)" type="button"  matTooltip="Affecation " [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                            <i class="material-icons">Affecation</i>
+                                        </button>
+                                       </td>
                                   </tr>
                                   
                               </tbody>
@@ -100,7 +109,7 @@
                             </pagination-controls>
                           </div>
                           <div >
-                            <a mat-raised-button   (click)="exportExcel()" class="btn btn-success pull-right">Export Excel</a>
+                            <a mat-raised-button [ngStyle]="{'font-size.px':15,'color':'black' , 'background-color':'green'}"  (click)="exportExcel()" class="btn btn-success pull-right">Export Excel</a>
                           </div>
                        
                           

@@ -9,6 +9,7 @@ import { Contrat } from 'app/Models/contrat';
 //import { FormUpdateComponent } from '../form-update/form-update.component';
 import { ngxCsv } from 'ngx-csv/ngx-csv';
 import { BlogService } from '../service/blog.service';
+import { FormUpdateBlogComponent } from '../form-updateBlog/form-updateBlog.component';
 
 
 
@@ -28,6 +29,7 @@ export class TableListBlogComponent implements OnInit,OnDestroy {
   page : number =1;
   tableSize : number =5;
   tableSizes : any = [5 , 10 , 15 , 20];
+  blogservices: BlogService;
 
 
   constructor(private  blogservice: BlogService,private share:ShareServiceService, private router:Router,private matdialog:MatDialog) {
@@ -52,10 +54,10 @@ export class TableListBlogComponent implements OnInit,OnDestroy {
     this.router.navigate(['admin/affichageBlog/'+item.idBlog]);
   }
   OpenPopup(item){
-  //   console.log(item);
-  //   this.matdialog.open(FormUpdateContratComponent,{
-  //    data:item
-  //  })
+    console.log(item);
+    this.matdialog.open(FormUpdateBlogComponent,{
+     data:item
+   })
   }
   ContratList():void{
     this.blogservice.getBlog().subscribe(

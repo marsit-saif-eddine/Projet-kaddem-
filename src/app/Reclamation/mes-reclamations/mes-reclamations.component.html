@@ -1,0 +1,44 @@
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Mes reclamations</h4>
+                        <div>
+                            <a mat-raised-button href="user/addReclamation" class="btn btn-danger pull-right">New Reclamation</a>
+                        </div>
+                        <p class="card-category"></p>
+                    </div>
+                    <br><hr>
+                        <div *ngFor="let r of reclamations">
+                            <div class="col-md-16">
+                                <div class="card card-profile">
+                                    <div class="card-avatar">
+                                        <a href="javascript:void(20)">
+                                            <img class="img" src="./assets/img/reclamation.jpeg" />
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="card-category text-gray">OBJET:</h6>
+                                        <h4 class="card-title">{{r.objet}}</h4>
+                                        <h6 class="card-category text-gray">DESCRIPTION:</h6>
+
+                                        <p class="card-description">
+                                            {{r.description}}
+                                        </p>
+                                        <a href="javascript:void(0)" (click)="OpenPopup(r)" class="btn btn-danger btn-round">Edit</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+
+
+
+
+    </div>
+    </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 
 import { data } from 'jquery';
@@ -18,7 +19,7 @@ export class affichageComponent implements OnInit {
   dataArray:any
  size:24;
 
-  constructor(private service:ServiceService, private route:ActivatedRoute) {
+  constructor(private service:ServiceService, private route:ActivatedRoute,private router:Router) {
     this.route.params.subscribe(data=>this.id=data.id)
     console.log(this.id)
     this.service.getEtudiantbyid(this.id).subscribe(response=>this.dataArray=response)
@@ -30,6 +31,9 @@ export class affichageComponent implements OnInit {
   ngOnInit() {
   }
   
-  
+  affecter(id){
+    this.router.navigate(['admin/affectation/'+id]);
+
+ }
 
 }

@@ -10,14 +10,19 @@
               <div class="card-body">
                   <form #f="ngForm" (ngSubmit)="get(f)">
                     
-                      <div class="col-md-3">
-                        
-                        
-                              <mat-form-field class="example-full-width">
-                                <input  matInput  name="opt" placeholder="option"  ngModel type="text">
-                             
-                              
-                              </mat-form-field>
+                      
+
+                          <div class="col-md-3">
+                            <mat-form-field appearance="fill">
+                              <mat-label>Choisir une option</mat-label>
+                              <mat-select name="opt" #spe="ngModel" ngModel required>
+                                <mat-option>None</mat-option>
+                                <mat-option value="GAMIX">GAMIX</mat-option>
+                                <mat-option value="SE">SE</mat-option>
+                                <mat-option value="SIM">SIM</mat-option>
+                                <mat-option value="NIDS">NIDS</mat-option>
+                              </mat-select>
+                            </mat-form-field>
                           </div>
                          
                       
@@ -63,6 +68,8 @@
                               </div>
                             </mat-form-field>
                           </div>
+
+                          
                                                                                             
                       <button mat-raised-button type="submit" class="btn btn-danger pull-right" [ngClass]="{ disabled : f.invalid }">add Profile</button>
                       <div class="clearfix"></div>

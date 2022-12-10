@@ -19,7 +19,7 @@ export class ReclamationServiceService {
   LIST="listReclamation"
   ADD = "addReclamation"
   DELETE = "deleteReclamation/"
-  UPDATE ="updateReclamation"
+  UPDATE ="updateReclamation/"
 
   constructor(private http: HttpClient, private service : userAuthService) { }
   requestHeader = new HttpHeaders({'Authorization': `Bearer ${this.auth_token}`})
@@ -37,14 +37,29 @@ export class ReclamationServiceService {
     return this.http.delete(this.BaseURL+this.DELETE+id,{headers:this.requestHeader})
   }
   
-  updateReclamation(reclamation: any) {
-     return this.http.put(this.BaseURL + this.UPDATE,reclamation,{headers:this.requestHeader}).pipe(tap(() => {
+  updateReclamation(reclamation: any, idE:any) {
+     return this.http.put(this.BaseURL + this.UPDATE+ idE ,reclamation,{headers:this.requestHeader} ).pipe(tap(() => {
       this.RefreshRequired.next();
     }));
   }
 
   AddandAffectReclamationToStudent(idEtudiant: any, reclamation: any) {
-    return this.http.put("http://localhost:8089/SpringMVC/ReclamationC/AddandAffectReclamationToStudent/"+idEtudiant,reclamation,{headers:this.requestHeader})
+    return this.http.put("http://localhost:8089/SpringMVC/ReclamationC/AddandAffectReclamationToStudent/"+idEtudiant,reclamation,{headers:this.requestHeader}) .pipe(tap(() => {
+      this.RefreshRequired.next();
+    }));
+  }
+
+  MesReclamations(idEtudiant: any) {
+    return this.http.get("http://localhost:8089/SpringMVC/ReclamationC/findAllBytudiant/" + idEtudiant,{headers:this.requestHeader});
+    
+  }
+
+  nombreReclamations() {
+    return this.http.get("http://localhost:8089/SpringMVC/ReclamationC/nombrereclamations",{headers:this.requestHeader});
+    
+  }
+  nombreetudiants() {
+    return this.http.get("http://localhost:8089/SpringMVC/Etudiant/nombreetudients",{headers:this.requestHeader});
     
   }
   

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { userAuthService } from './user-auth.service ';
+import { Etudiant } from 'app/authentification/models/model/Etudiant';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +22,8 @@ export class ShareServiceService {
       return this.http.post('http://localhost:8089/SpringMVC/authenticate',logindata,{headers:this.requestHeader})
   }
 
-  register(registerdata){
-    return this.http.post('http://localhost:8089/Etudiant/addEtudiant',registerdata,{headers:this.requestHeader})
+  register(e:Etudiant):Observable<object>{
+    return this.http.post('http://localhost:8089/SpringMVC/Etudiant/addEtudiant',e,{headers:this.requestHeader})
 }
 
    }

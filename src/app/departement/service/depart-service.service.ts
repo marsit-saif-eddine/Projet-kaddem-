@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders  } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Departement } from '../departement';
 import { FormBuilder } from '@angular/forms';
@@ -10,6 +10,7 @@ import { userAuthService } from 'app/services/user-auth.service ';
 })
 export class DepartServiceService {
   auth_token:String = this.service.getToken();
+
 
   constructor(private http:HttpClient,
     private fb: FormBuilder, private service : userAuthService) { }

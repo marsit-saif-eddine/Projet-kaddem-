@@ -4,12 +4,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        <div style="position:absolute">
+                   
                             <h4 class="card-title ">Reclamations List</h4>
-                        </div>
-                        <div>
-                            <a mat-raised-button href="admin/addReclamation" class="btn btn-danger pull-right">Add Reclamation</a>
-                        </div>
+                      
+                       
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -18,7 +16,6 @@
                                     <th>ID</th>
                                     <th>Objet</th>
                                     <th>Description</th>
-                                    <th>EDIT</th>
                                     <th>DELETE</th>
                                 </thead>
                                 <tbody *ngFor="let r of reclamations | paginate:{
@@ -26,20 +23,14 @@
                                 currentPage : page ,
                                 totalItems : count
                                 }; let i = index">
-                                    <tr *ngIf="search=='' || r.description.toLowerCase().includes(search)">
+                                    <tr *ngIf="search=='' || r.objet.toLowerCase().includes(search)">
                                         <td>
                                             <a style="text-decoration: none; color:black" (click)="onselect(r)">
                                                 {{r.idReclamation}}</a>
                                         </td>
                                         <td>{{r.objet}}</td>
-                                        <td>{{r.description}}</td>
-                                        <td class="td-actions">
-                                            <button mat-raised-button (click)="OpenPopup(r)" type="button"
-                                                matTooltip="Edit Reclamation" [matTooltipPosition]="'above'"
-                                                class="btn btn-primary btn-link btn-sm btn-just-icon">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                        </td>
+                                        <td> <a style="text-decoration: none; color:black" (click)="onselect(r)">Click to view description</a></td>
+        
                                         <td class="td-actions">
                                             <button mat-raised-button type="button" (click)="deleteRecByid(r.idReclamation) "
                                                 matTooltip="Remove" [matTooltipPosition]="'above'"

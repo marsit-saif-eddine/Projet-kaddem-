@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders  } from '@angular/common/http';
+import { HttpClient ,HttpHeaders} from '@angular/common/http';
 import { FormBuilder } from '@angular/forms';
 import { Partenaire } from '../partenaire';
 import { Observable } from 'rxjs';
@@ -10,7 +10,6 @@ import { userAuthService } from 'app/services/user-auth.service ';
 })
 export class PartenaireserviceService {
   auth_token:String = this.service.getToken();
-
 
   constructor(private http:HttpClient,private fb:FormBuilder, private service : userAuthService) {}
   requestHeader = new HttpHeaders({'Authorization': `Bearer ${this.auth_token}`})

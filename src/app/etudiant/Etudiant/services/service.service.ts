@@ -4,7 +4,7 @@ import { HttpClient ,HttpHeaders} from '@angular/common/http';
 import { Subject , tap } from 'rxjs';
 import { Etudiant } from '../model/Etudiant';
 import { userAuthService } from 'app/services/user-auth.service ';
-
+import { Equipe } from 'app/equipe/model/equipe';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,9 @@ import { userAuthService } from 'app/services/user-auth.service ';
 export class ServiceService {
   auth_token:String = this.service.getToken();
   searchText$ = new Subject<String>();
-  private refreshRequired = new Subject<void>()
 
+  private refreshRequired = new Subject<void>()
+ 
   get RefreshRequired() {
     return this.refreshRequired;
   }
@@ -49,6 +50,18 @@ export class ServiceService {
   getEtudiantbyid(id:String){
     return this.httpclient.get<Etudiant>(this.URL+'/retrieve-etudiant/'+id,{headers:this.requestHeader})
   }
+
+  getEquipes(){
+    return this.httpclient.get('http://localhost:8089/SpringMVC/Equipe/GetEquipe',{headers:this.requestHeader});
+                                
+  }
+  affectetudianttoequipe(idetud:any, ideq:number,de:any){
+    return this.httpclient.put(this.URL+'/addAndAssignEtudiantToEquipe/'+idetud+'/'+ideq,de,{headers:this.requestHeader})
+  }
+  showmyequipes(id:any){
+    return this.httpclient.get<Equipe>(this.URL+'/retrieve-equipes/'+id,{headers:this.requestHeader});
+  }
+
  
  
 }

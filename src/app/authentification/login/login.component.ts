@@ -31,14 +31,14 @@ export class LoginComponent implements OnInit{
   }
 
   login(){
-    console.log(this.loginObject)
+    
     this.share.login(this.loginObject).subscribe(
       (response:any) => {
         this.userAuthService.setRoles(response.user.role)
         this.userAuthService.setToken(response.jwtToken)
 
         const role = response.user.role[0].roleName
-        console.log(role)
+        this.userAuthService.setUser(response.user)
 
         if(role=='Admin'){
              this.router.navigate(['/admin']);

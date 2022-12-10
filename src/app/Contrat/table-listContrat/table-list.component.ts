@@ -9,6 +9,7 @@ import { Contrat } from 'app/Models/contrat';
 import { FormUpdateContratComponent } from '../form-updateContrat/form-updateContrat.component';
 //import { FormUpdateComponent } from '../form-update/form-update.component';
 import { ngxCsv } from 'ngx-csv/ngx-csv';
+import { FormUpdateAffectationComponent } from '../form-updateAffectation/form-updateAffectation.component';
 
 
 
@@ -53,26 +54,7 @@ export class TableListContratComponent implements OnInit,OnDestroy {
     new ngxCsv(this.dataArray, "Contrats", options);
    }
 
-  //  exportExcel(){
-  //   this.contartService.getExport().subscribe(x => {
-  //     const blob = new Blob([x], {type: 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64'}) ;
-  //     if(window.navigator && (window.navigator as any).msSaveOrOpenBlob ){
-  //       const test = (window.navigator as any).msSaveOrOpenBlob(blob) ; 
-  //       return test ;
-
-  //     }
-  //     const data = window.URL.createObjectURL(blob) ; 
-  //     const link = document.createElement('a');
-  //     link.href = data ;
-  //     link.download = "contrat.excel";
-  //     link.dispatchEvent(new MouseEvent('clik',{bubbles: true , cancelable: true , view:window}))
-
-  //     setTimeout( function() {
-  //     window.URL.revokeObjectURL(data);
-  //     link.remove();
-  //     }, 100 ) ;
-  //   });
-  //  }
+ 
  
 
   deleteContart(id: any)
@@ -91,6 +73,13 @@ export class TableListContratComponent implements OnInit,OnDestroy {
   OpenPopup(item){
     console.log(item);
     this.matdialog.open(FormUpdateContratComponent,{
+     data:item
+   })
+  }
+
+  OpenPopup2(item){
+    console.log(item);
+    this.matdialog.open(FormUpdateAffectationComponent,{
      data:item
    })
   }

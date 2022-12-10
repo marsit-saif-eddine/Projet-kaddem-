@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ReclamationServiceService } from 'app/services/Reclamation/reclamation-service.service';
+import { ShareServiceService } from 'app/services/share-service.service';
 import { Subscription } from 'rxjs';
+import { DetailReclamationComponent } from '../detail-reclamation/detail-reclamation.component';
 import { UpdateReclamationComponent } from '../update-reclamation/update-reclamation.component';
 
 @Component({
@@ -20,7 +22,7 @@ export class ListReclamationComponent implements OnInit, OnDestroy {
   tableSize : number =7;
   tableSizes : any = [5 , 10 , 15 , 20];
 
-  constructor(private reclamationService: ReclamationServiceService, private matdialog: MatDialog) { }
+  constructor(private reclamationService: ReclamationServiceService, private matdialog: MatDialog, private share: ShareServiceService) { }
 
   ngOnInit(): void {
     this.ReclamationList()
@@ -30,7 +32,7 @@ export class ListReclamationComponent implements OnInit, OnDestroy {
     })
     
     
-     let sub = this.reclamationService.searchText$.subscribe(data=>{
+     let sub = this.share.searchText$.subscribe(data=>{
       this.search=data;
       // console.log(this.search);
     })
@@ -66,7 +68,10 @@ export class ListReclamationComponent implements OnInit, OnDestroy {
   
   onselect(item) {
     console.log(item.objet)
-    //this.router.navigate(['/affichage/'+item.name]);
+     this.matdialog.open(DetailReclamationComponent,{
+      data:item
+     })
+    console.log(item?.etudiants?.nomE)
   }
 
   OpenPopup(item){

@@ -9,6 +9,9 @@ import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 import { PartenaireserviceService } from '../service/partenaireservice.service';
 import { DeleteDialogCompnent } from 'app/departement/listeDepart/delete-dialog/delete-dialog.component';
 import { SharedServiceService } from 'app/services/shared-service.service';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { notif } from '../notif/notif.component';
+
 
 
 @Component({
@@ -27,15 +30,54 @@ export class listePartenaireComponent implements OnInit,OnDestroy {
   page : number =1;
   tableSize : number =7;
   tableSizes : any = [5 , 10 , 15 , 20];
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  horizontalPosition: MatSnackBarHorizontalPosition='center';
+  notifType='Added Succefully'
 
 
   constructor(private service:PartenaireserviceService,
-     private router:Router,private matdialog:MatDialog, private share:ShareServiceService, private ss:SharedServiceService) {
+     private router:Router,private matdialog:MatDialog, private share:ShareServiceService, private ss:SharedServiceService,
+     private _snackbar:MatSnackBar) {
     
    
 
    }
+   
+  ngOnInit() {
+    this.listePartenaire();
+    
+
+
+    this.ss.reloadPartenairesList.subscribe({ 
+      next:(value)=>{
+        if(value)   {
+          this.listePartenaire();
+          this.showNotif()
+        } 
+
+      }
+    })
+    let sub = this.share.searchText$.subscribe(data=>{
+      this.search=data;
+// console.log(this.search);
+     })
+     this.subscriptions.add(sub)
+    
+  }
+  showNotif(){
+    console.log("test notif");
+    
+    // this._snackbar.open('Partenaire',this.notifType,{
+    //   verticalPosition:this.verticalPosition,
+    //   horizontalPosition:this.horizontalPosition
+
+    // })
+    this._snackbar.openFromComponent(notif,{ duration:5000,
+    data:this.notifType})
+  }
  getid(idPart){
+
+  this.notifType='Deleted'
   this.matdialog.open(DeleteDialogCompnent,{
     data: {id:idPart,type:"Partenaire"}
   })
@@ -51,6 +93,7 @@ export class listePartenaireComponent implements OnInit,OnDestroy {
     this.router.navigate(['admin/affichagePartenaire/'+item.idPart]);
   }
   OpenPopup(item){
+    this.notifType='updated successfully'
     this.matdialog.open(updatePartenaireComponent,{
       data:item
     })
@@ -89,23 +132,6 @@ export class listePartenaireComponent implements OnInit,OnDestroy {
     this.listePartenaire();
   }
 
-
-  ngOnInit() {
-    this.listePartenaire();
-
-    this.ss.reloadPartenairesList.subscribe({ 
-      next:(value)=>{
-        if(value)     this.listePartenaire();
-
-      }
-    })
-    let sub = this.share.searchText$.subscribe(data=>{
-      this.search=data;
-// console.log(this.search);
-     })
-     this.subscriptions.add(sub)
-    
-  }
   ngOnDestroy(){
     this.subscriptions.unsubscribe()
   }

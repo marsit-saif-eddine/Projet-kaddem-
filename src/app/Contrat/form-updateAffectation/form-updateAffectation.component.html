@@ -1,0 +1,23 @@
+<div class="main-content">
+
+      <div class="">
+          
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Affecation Contrat Etudiant</h4>
+                      <p class="card-category"></p>
+                  </div>
+                  <div class="card-body">
+                    <mat-form-field>
+                      <mat-select placeholder="Client*" #clientValue  (selectionChange)="changeClient($event.value)">
+                      <mat-option  *ngFor="let client of dataArray" [value]="client">
+                        {{client.nomE}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  </div>
+              </div>
+              <button mat-raised-button type="submit"  [ngStyle]="{'font-size.px':15,'color':'black' , 'background-color':'red'}" href="/table-listContrat" class="btn btn-danger pull-right" (click)="save()">Affecter etudiant</button>
+      </div>
+
+</div>

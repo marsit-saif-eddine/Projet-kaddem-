@@ -74,7 +74,7 @@
                         </div>
                     </div>
 
-                      <button mat-raised-button type="submit"  href="/table-listContrat" class="btn btn-danger pull-right" (click)="save()" [disabled]="f.invalid || mon.value<=0 || dateFin.value<=deb.value" >Ajouter contrat</button>
+                      <button mat-raised-button [ngStyle]="{'font-size.px':15,'color':'black' , 'background-color':'red'}" type="submit"  href="/table-listContrat" class="btn btn-danger pull-right" (click)="save()" [disabled]="f.invalid || mon.value<=0 || dateFin.value<=deb.value" >Ajouter contrat</button>
                       <div class="clearfix"></div>
                   </form>
               </div>
