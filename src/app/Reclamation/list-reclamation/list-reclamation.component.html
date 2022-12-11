@@ -4,12 +4,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        <div style="position:absolute">
+                   
                             <h4 class="card-title ">Reclamations List</h4>
-                        </div>
-                        <div>
-                            <a mat-raised-button href="/addReclamation" class="btn btn-danger pull-right">Add Reclamation</a>
-                        </div>
+                      
+                       
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -25,7 +23,7 @@
                                 currentPage : page ,
                                 totalItems : count
                                 }; let i = index">
-                                    <tr *ngIf="search=='' || r.description.toLowerCase().includes(search)">
+                                    <tr *ngIf="search=='' || r.objet.toLowerCase().includes(search)">
                                         <td>
                                             <a style="text-decoration: none; color:black" (click)="onselect(r)">
                                                 {{r.idReclamation}}</a>

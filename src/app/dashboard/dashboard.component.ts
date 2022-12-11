@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReclamationServiceService } from 'app/services/Reclamation/reclamation-service.service';
 import * as Chartist from 'chartist';
 
 @Component({
@@ -7,8 +8,9 @@ import * as Chartist from 'chartist';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+   rec:any
+   stu:any
+  constructor(private service:ReclamationServiceService) { }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -66,6 +68,10 @@ export class DashboardComponent implements OnInit {
       seq2 = 0;
   };
   ngOnInit() {
+
+    this.service.nombreReclamations().subscribe(data=>this.rec=data);
+    console.log(this.rec)
+    this.service.nombreetudiants().subscribe(data=>this.stu=data);
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
       const dataDailySalesChart: any = {

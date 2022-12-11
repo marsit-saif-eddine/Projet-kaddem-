@@ -22,8 +22,8 @@ export class MesReclamationsComponent implements OnInit {
   }
   
   MesReclamationList(): void{
-    this.reclamationService.MesReclamations(2).subscribe((data) => {
-      console.log(data)
+    this.reclamationService.MesReclamations("saif").subscribe((data) => {
+      console.log(data);
       this.reclamations = data;
       }
    )

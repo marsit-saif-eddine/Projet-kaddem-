@@ -1,0 +1,9 @@
+
+<div *ngIf="validator.invalid">
+<div *ngIf="validator.errors?.['required']">
+<mat-error class="font-small-2 text-danger">required</mat-error>
+</div>
+<div *ngIf="validator.errors?.['minlength']">
+    <span class="badge text-bg-danger"> minlength 3</span>  
+</div>
+</div>

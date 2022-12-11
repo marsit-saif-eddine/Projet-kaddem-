@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { UpdateUniversiteComponent } from '../update-universite/update-universite.component';
 import { response } from 'express';
+import { ShareServiceService } from 'app/services/share-service.service';
 
 @Component({
   selector: 'app-list-universite',
@@ -26,7 +27,7 @@ export class ListUniversiteComponent implements OnInit,OnDestroy {
 
 
 
-  constructor(private universiteService: UniversiteServiceService, private router: Router, private matdialog: MatDialog) {
+  constructor(private universiteService: UniversiteServiceService, private router: Router, private matdialog: MatDialog, private share: ShareServiceService) {
    }
 
   ngOnInit(): void {
@@ -35,7 +36,7 @@ export class ListUniversiteComponent implements OnInit,OnDestroy {
       this.UniversiteList()
     })
     
-    let sub = this.universiteService.searchText$.subscribe(data=>{
+    let sub = this.share.searchText$.subscribe(data=>{
       this.search=data;
       // console.log(this.search);
     })

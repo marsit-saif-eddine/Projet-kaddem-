@@ -5,16 +5,31 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './authentification/login/login.component';
-import { ListUniversiteComponent } from './Universite/list-universite/list-universite.component';
-import { AddUniversiteComponent } from './Universite/add-universite/add-universite.component';
-import { MesReclamationsComponent } from './Reclamation/mes-reclamations/mes-reclamations.component';
+import { AccessGuardet } from './components/guards/access.guard';
+import { AccessGuardd } from './components/guards/connected/access.guard';
+import { AccessGuard } from './layouts/guards/access.guard';
+import { RegisterComponent } from './authentification/register/register.component';
+import { AccessGuardii } from './components/guards/guardii/access.guard';
 
 const routes: Routes =[
+  { path: 'register',   canActivate:[AccessGuardii]  ,component: RegisterComponent },
+  { path: 'login',   canActivate:[AccessGuardet]  ,component: LoginComponent },
+  
   {
     path: '',
-    redirectTo: 'user-profile',
+    canActivate: [AccessGuard],
+    redirectTo: 'admin',
     pathMatch: 'full',
-  }, {
+    
+  },
+  {
+    path: '',
+    canActivate: [AccessGuardd],
+    redirectTo: 'user',
+    pathMatch: 'full',
+    
+  },
+   {
     path: '',
     component: AdminLayoutComponent,
     children: [{
@@ -22,11 +37,26 @@ const routes: Routes =[
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
     }]
   },
-  { path: 'login',     component: LoginComponent },
-  { path: 'listuniversite', component: ListUniversiteComponent },
-  { path: 'addUniversite', component: AddUniversiteComponent },
-
-
+  {
+    path: '**',
+    canActivate: [AccessGuard],
+    redirectTo: 'admin',
+    pathMatch: 'full',
+    
+  },
+  {
+    path: '**',
+    canActivate: [AccessGuardd],
+    redirectTo: 'user',
+    pathMatch: 'full',
+    
+  },
+  
+  
+ 
+  
+  
+ 
 ];
 
 @NgModule({

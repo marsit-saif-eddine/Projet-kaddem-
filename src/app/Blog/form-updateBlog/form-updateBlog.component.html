@@ -1,0 +1,48 @@
+<div class="main-content">
+
+  <div class="">
+      
+          <div class="card">
+              <div class="card-header card-header-danger">
+                  <h4 class="card-title">Edit blog</h4>
+                  <p class="card-category"></p>
+              </div>
+              <div class="card-body">
+                  <form [formGroup]="Reactiveform" (ngSubmit)="onSubmit()">
+                      <div class="row">
+                          <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="veuillez modifier le contrat" disabled>
+                              </mat-form-field>
+                          </div>
+
+                      </div>
+                      <div class="row">
+                          <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                              <input matInput name="titre"  type="text" formControlName="titre">
+                            </mat-form-field>
+                            <div class="alert alert-danger" *ngIf="Reactiveform.controls['titre'].errors && Reactiveform.controls['titre'].touched ">
+                              Titre is required
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                              <input matInput name="description" type="texte" formControlName="description">
+                            </mat-form-field>
+                            <div class="alert alert-danger" *ngIf="Reactiveform.controls['description'].errors && Reactiveform.controls['description'].touched ">
+                              <div *ngIf="Reactiveform.controls['description'].hasError('minlength')">20 lettres minimum</div>
+                              <div *ngIf="Reactiveform.controls['description'].hasError('required')">Descrtption is required</div>
+                            </div>
+                          </div>
+                      </div>
+                      <button mat-raised-button type="submit" [disabled]="Reactiveform.invalid"  [ngClass]="['btn', 'btn-danger','pull-right','btn-red']">Update blog</button>
+                      <div class="clearfix"></div>
+                  </form>
+              </div>
+          </div>
+      
+      
+  </div>
+
+</div>

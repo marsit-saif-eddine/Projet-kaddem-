@@ -1,0 +1,79 @@
+<div class="main-content">
+
+  <div class="">
+      
+          <div class="card">
+              <div class="card-header card-header-danger">
+                  <h4 class="card-title">Add Departement</h4>
+                  <p class="card-category">Complete the details</p>
+              </div>
+              <div class="card-body">
+                  <form #f="ngForm" (ngSubmit)="get(f)">
+                      <div class="row">
+                          
+                          <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                <input matInput name="title" #title="ngModel" ngModel placeholder="ID Departement"disabled>
+                              </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                              <mat-form-field class="example-full-width">
+                                <input matInput name="nomDepart" #nomDepart="ngModel" ngModel placeholder="Nom Departement"  required minlength="3">
+                                <div *ngIf="nomDepart.invalid && nomDepart.touched">
+                                  <div class="text-danger" *ngIf="nomDepart.errors?.['required']" >
+                                    *ce champ est obligatoire</div>
+                                    <div class="text-danger" *ngIf="nomDepart.errors?.['minlength']" >
+                                      *le nom doit contenir au moins 3 lettres </div>
+                                </div>
+                              </mat-form-field>
+                          </div>
+                      </div>
+                      <div class="row">
+                          
+                        <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput name="emailDepart" #emailDepart="ngModel" type="email" ngModel placeholder="Email Departement" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                              <div *ngIf="emailDepart.invalid && emailDepart.touched">
+                                <div class="text-danger" *ngIf="emailDepart.errors?.['pattern']" >
+                                  veuillez utiliser une adresse mail valide</div>
+                              </div>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput name="adresse" #adresse="ngModel" type="text" ngModel placeholder="adresse">
+                          </mat-form-field>
+                           
+                        </div>
+                    </div>
+                    <div class="row">
+                          
+                      <div class="col-md-3">
+                        <mat-form-field class="example-full-width">
+                          <input matInput placeholder="numero Departement" type="text" name="numDepart" #numDepart="ngModel" ngModel required minlength="8">
+                          <div  class="text-danger" *ngIf="numDepart.errors?.['minlength']"> ce champ doit contenir 8 chiffres </div>
+                        </mat-form-field>
+                        
+                         
+                      </div>
+                      <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Code Postal" name="codepostal" #codepostal="ngModel" type="text" ngModel>
+                          </mat-form-field>
+                      </div>
+                  </div>
+                     
+                      
+                    
+                     
+                      <button mat-raised-button type="submit" [disabled]="f.invalid"  class="btn btn-danger pull-right">ajouter Departement</button>
+                      <div class="clearfix"></div>
+                  </form>
+              </div>
+          </div>
+          
+      
+      
+  </div>
+
+</div>

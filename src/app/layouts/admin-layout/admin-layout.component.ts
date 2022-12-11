@@ -4,6 +4,7 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import PerfectScrollbar from 'perfect-scrollbar';
 import * as $ from "jquery";
 import { filter, Subscription } from 'rxjs';
+import { userAuthService } from 'app/services/user-auth.service ';
 
 @Component({
   selector: 'app-admin-layout',
@@ -14,12 +15,17 @@ export class AdminLayoutComponent implements OnInit {
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
-
-  constructor( public location: Location, private router: Router) {}
+  public role:String
+  private datarole :any;
+ 
+  constructor( public location: Location, private router: Router, private service:userAuthService) {}
 
   ngOnInit() {
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
-
+      this.datarole = this.service.gtRoles();
+      this.role=this.datarole[0].roleName;
+      
+      console.log(this.role) 
       if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {
           // if we are on windows OS we activate the perfectScrollbar function
 
@@ -125,10 +131,15 @@ export class AdminLayoutComponent implements OnInit {
               $sidebar_responsive.css('background-image','url("' + new_image + '")');
           }
       });
+
+      
+      
   }
   ngAfterViewInit() {
       this.runOnRouteChange();
   }
+ 
+  
   isMaps(path){
       var titlee = this.location.prepareExternalUrl(this.location.path());
       titlee = titlee.slice( 1 );

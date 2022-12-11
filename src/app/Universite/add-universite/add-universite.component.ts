@@ -25,7 +25,7 @@ export class AddUniversiteComponent implements OnInit {
       data => {
         console.log(data)
       })
-    this.router.navigate(['/listUniversite'])
+    this.router.navigate(['admin/listUniversite'])
   }
  
 

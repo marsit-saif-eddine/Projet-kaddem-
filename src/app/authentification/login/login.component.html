@@ -2,8 +2,8 @@
 <div style="width: 70%;    margin: auto;
 margin-top: 10%;" class="card col text-center">
   <div class="card-header card-header-danger">
-      <h4 class="card-title">Edit Profile</h4>
-      <p class="card-category">Complete your profile</p>
+      <h4 class="card-title">LOGIN PAGE</h4>
+      <p class="card-category">Enter Your Details</p>
   </div>
 <div class="card-body">
 <form #loginForm="ngForm" style="text-align: -webkit-center;" (ngSubmit)="login()">
@@ -130,7 +130,7 @@ margin-top: 10%;" class="card col text-center">
     <div class="inputGroup inputGroup1">
       
       <mat-form-field style="width: 50%;" class="example-full-width">
-      <input matInput  placeholder="Email" type="text" id="email" name="email" [(ngModel)]="email" class="email" maxlength="256" required/>
+      <input matInput  placeholder="UserName" type="text" id="email" name="userName" [(ngModel)]="loginObject.userName" class="email" maxlength="256" required/>
     </mat-form-field>
       
       <span class="indicator"></span>
@@ -138,12 +138,17 @@ margin-top: 10%;" class="card col text-center">
     <div class="inputGroup inputGroup2">
       
       <mat-form-field style="width: 50%;" class="example-full-width">
-      <input matInput placeholder="Password" type="password" id="password" name="password" [(ngModel)]="password" class="password" required/>
+      <input matInput placeholder="Password" type="password" id="password" name="userPassword" [(ngModel)]="loginObject.userPassword" class="password" required/>
       </mat-form-field>
     </div>
+   
     <div class="inputGroup inputGroup3 col text-center">
       <button mat-raised-button id="login" type="submit" class="btn btn-danger " [disabled]="loginForm.invalid">Log in</button>
     </div>
+    <div class="inputGroup inputGroup3 col text-center">
+      <a mat-raised-button id="login" href="/register" class="btn btn-danger " >Create Account</a>
+    
+  </div>
   </form>
 </div>
 </div>

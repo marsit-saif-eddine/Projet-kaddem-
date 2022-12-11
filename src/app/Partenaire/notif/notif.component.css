@@ -1,0 +1,15 @@
+:host {
+    display:flex;
+    justify-content: center;
+   
+}
+
+.deleteC{
+    color: red;
+}
+.addC{
+    color: rgb(171, 171, 190);
+}
+.updateC{
+    color: green;
+}

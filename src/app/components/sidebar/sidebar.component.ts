@@ -8,12 +8,19 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Dashboard',  icon:'dashboard', class: '' },
-    { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
-    { path: '/table-list', title: 'Etudiant', icon: 'content_paste', class: '' },
-    { path: '/listUniversite', title: 'Universite', icon: 'content_paste', class: '' },
-    { path: '/listReclamation', title: 'Reclamation', icon: 'content_paste', class: '' },
-    
+     
+      { path: 'admin/user-profile', title: 'User Profile',  icon:'person', class: '' },
+      { path: 'admin/dashboard', title: 'Dashboard',  icon:'content_paste', class: '' },
+      { path: 'admin/table-list', title: 'Etudiant',  icon:'content_paste', class: '' },
+      { path: 'admin/table-listContrat', title: 'Contrat',  icon:'content_paste', class: '' },
+      { path: 'admin/table-listBlog', title: 'Blog',  icon:'content_paste', class: '' },
+      { path: 'Log-out', title: 'Logout',  icon:'unarchive', class: 'active-pro' },
+      { path: 'admin/listUniversite', title: 'Universite', icon: 'content_paste', class: '' },
+      { path: 'admin/listReclamation', title: 'Reclamation', icon: 'content_paste', class: '' },
+      { path: 'admin/listeDepart', title: 'Departement',  icon:'content_paste', class: '' },
+      { path: 'admin/listequipe', title: 'Equipe',  icon:'content_paste', class: '' },
+      { path: 'admin/listePartenaire', title: 'Partenaire',  icon:'person', class: '' },
+
 ];
 
 @Component({

@@ -8,24 +8,24 @@
             <div class="card-body">
                 <form #FormRec="ngForm">
                         <div class="col-md-3">
-                            <h4>Objet Reclamation :</h4>
+                            <h4 [ngStyle]="{'font-size.px':20,'color':'blue'}">Objet Reclamation :</h4>
                             <input type="text" name="objet" ngModel required minlength="4" #objet="ngModel">
-                            <div *ngIf="objet.invalid && objet.touched">
+                            <div class="alert alert-danger" *ngIf="objet.invalid && objet.touched">
                                 <div *ngIf="objet.errors?.['required']">required</div>
                                 <div *ngIf="objet.errors?.['minlength']">L'Objet doit contenir au moins 4 lettres</div>
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <h4>Description: </h4>
+                            <h4 [ngStyle]="{'font-size.px':20,'color':'blue'}">Description: </h4>
                             <textarea name="description"  rows="4" cols="50" ngModel required minlength="10" #description="ngModel"></textarea>
-                            <div *ngIf="description.invalid && description.touched">
+                            <div class="alert alert-danger" *ngIf="description.invalid && description.touched">
                                 <div *ngIf="description.errors?.['required']">required</div>
                                 <div *ngIf="description.errors?.['minlength']">Veuillez saisir la cause de votre reclamation</div>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <input type="submit" class="btn btn-danger pull-right" value="Submit"
-                                (click)="addReclamation(FormRec)" [disabled]="FormRec.invalid">
+                                (click)="addReclamation(FormRec)"  [ngClass]="{ disabled : FormRec.invalid }">
                         </div>
                         <div class="clearfix"></div>
                 </form>

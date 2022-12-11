@@ -1,0 +1,80 @@
+<div class="main-content">
+
+  <div class="">
+      
+          <div class="card">
+              <div class="card-header card-header-danger">
+                  <h4 class="card-title">Add Partenaire</h4>
+                  <p class="card-category">Complete the details</p>
+              </div>
+              <div class="card-body">
+                  <form #f="ngForm" (ngSubmit)="get(f)">
+                      <div class="row">
+                          
+                          <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                <input matInput name="idPart" #title="ngModel" ngModel placeholder="ID partenaire"disabled>
+                              </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                              <mat-form-field class="example-full-width">
+                                <input matInput name="nomPart" #nomPart="ngModel" ngModel placeholder="Nom partenaire" type="text"required minlength="3">
+                                <div *ngIf="nomPart.invalid && nomPart.touched">
+                                  <div class="text-danger" *ngIf="nomPart.errors?.['required']" >
+                                    *ce champ est obligatoire</div>
+                                <div class="text-danger" *ngIf="nomPart.errors?.['minlength']"> *Ce champ doit contenir au moins 3 lettres
+
+                                </div>
+                              </div>
+                              </mat-form-field>
+                          </div>
+                      </div>
+                      <div class="row">
+                          
+                        <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput name="emailPart" #emailPart="ngModel" type="email" ngModel placeholder="Email partenaire" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                              <div *ngIf="emailPart.invalid && emailPart.touched">
+                                <div class="text-danger" *ngIf="emailPart.errors?.['pattern']" >
+                                  veuillez utiliser une adresse mail valide</div>
+                              </div>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="date debut contrat" #datedc="ngModel" ngModel name="datedc" type="date" required>
+                              <div *ngIf="datedc.invalid && datedc.touched">
+                                <div class="text-danger" *ngIf="datedc.errors?.['required']" >
+                                  *ce champ est obligatoire</div>
+                              </div>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                          
+                      <div class="col-md-3">
+                          <mat-form-field class="example-full-width">
+                            <input matInput name="datefc" type="date" #datefc="ngModel" ngModel placeholder="date fin contrat" required>
+                            <div *ngIf="datefc.invalid && datefc.touched">
+                              <div class="text-danger" *ngIf="datefc.errors?.['required']" >
+                                *ce champ est obligatoire</div>
+                            </div>
+                          </mat-form-field>
+                      </div>
+                      
+                  </div>
+                     
+                      
+                    
+                     
+                      <button mat-raised-button type="submit" [ngStyle]="{'font-size.px':15,'color':'blue' , 'background-color':'red'}"  [disabled]="f.invalid" class="btn btn-danger pull-right">ajouter partenaire</button>
+                      <div class="clearfix"></div>
+                  </form>
+              </div>
+          </div>
+          
+      
+      
+  </div>
+
+</div>

@@ -1,0 +1,106 @@
+<div class="main-content" >
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                    <div style="position:absolute">
+                      <h4 class="card-title "> Table Partenaire</h4>
+                     
+                    
+                    </div>
+                    <div >
+                      <a mat-raised-button href="admin/ajoutPartenaire" class="btn btn-danger pull-right">Ajouter Partenaire</a>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead  class=" text-primary">
+                                  <th>
+                                      ID Partenaire
+                                  </th>
+                                  <th>
+                                      Nom Partenaire
+                                  </th>
+                                  <th>
+                                      Email Partenaire
+                                  </th>
+                                  <th>
+                                      date debut contrat
+                                  </th>
+                                  <th>
+                                    date fin contrat
+                                  </th>
+                                 
+                                  <th>
+                                    Modifier
+                                </th>
+                                <th>
+                                    Supprimer
+                                </th>
+                              </thead>
+                              <tbody *ngFor="let item of dataArray | paginate:{
+                                itemsPerPage : tableSize,
+                                currentPage : page ,
+                                totalItems : count
+                              }; let i = index">
+                                  <tr *ngIf="search=='' || item.nomPart.toLowerCase().includes(search)">
+                                    
+                                   
+                                      <td> <a style="text-decoration: none; color:black" (click)="onselect(item)" >
+                                        
+                                         {{item.idPart}}
+                                        </a>
+                                      </td>
+                                    
+                                      <td >
+                                        {{item.nomPart}}
+                                        
+                                      </td>
+                                      <td>
+                                        {{item.emailPart}}
+                                        
+                                      </td>
+                                      <td>
+                                        {{item.datedc}}
+                                        
+                                      </td>
+                                      <td >
+                                        {{item.datefc}}
+                                        
+                                        
+                                      </td>
+                                     
+                                      <td class="td-actions">
+                                        <button mat-raised-button (click)="OpenPopup(item)" type="button"  matTooltip="Modifier" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                            <i class="material-icons">edit</i>
+                                        </button>
+                                    </td>
+                                    <td class="td-actions">
+                                    <button mat-raised-button type="button" (click)="getid(item.idPart) " matTooltip="Supprimer" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                                  </tr>
+                                  
+                              </tbody>
+                          </table>
+                          <div style="text-align: -webkit-center;">
+                            <pagination-controls
+                            previousLabel="Prev"
+                            nextLabel="Next"
+                            (pageChange)="onTableDataChange($event)"
+                            
+                            >
+
+                            </pagination-controls>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</div>

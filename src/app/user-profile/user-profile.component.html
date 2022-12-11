@@ -5,81 +5,61 @@
               <div class="card">
                   <div class="card-header card-header-danger">
                       <h4 class="card-title">Edit Profile</h4>
-                      <p class="card-category">Complete your profile</p>
+                      <p class="card-category">Complete the details (NB:you'll be logged out after completing the details)</p>
                   </div>
                   <div class="card-body">
-                      <form>
-                          <div class="row">
-                              <div class="col-md-5">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Company (disabled)" disabled>
-                                  </mat-form-field>
-                              </div>
-                              <div class="col-md-3">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Username">
-                                  </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Email address" type="email">
-                                  </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Fist Name" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Last Name" type="text">
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-12">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Adress" type="text">
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="City" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Country" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Postal Code" type="text">
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-12">
-                                <label>About Me</label>
-                                <mat-form-field class="example-full-width">
-                                   <textarea matInput placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
-                                 </mat-form-field>
-                                  <!-- <div class="form-group">
-
-                                      <div class="form-group">
-                                          <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                          <textarea class="form-control" rows="5"></textarea>
-                                      </div>
-                                  </div> -->
-                              </div>
-                          </div>
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
-                          <div class="clearfix"></div>
-                      </form>
+                    <form style="text-align: -webkit-center;" [formGroup]="form" (ngSubmit)="save()">
+    
+  
+                      <div class="inputGroup inputGroup1">
+                        
+                        <mat-form-field style="width: 50%;" class="example-full-width">
+                        <input matInput  placeholder="UserName" type="text" id="email" formControlName="idEtudiant"  class="email" maxlength="256" />
+                        <mat-error>Error: {{ getErrorMessage('idEtudiant') }}</mat-error>
+                      </mat-form-field>
+                        
+                      </div>
+                      <div class="inputGroup inputGroup2">
+                        
+                        <mat-form-field style="width: 50%;" class="example-full-width">
+                        <input matInput  placeholder="First Name" type="text" id="email" formControlName="prenomE" class="email" maxlength="256" />
+                        <mat-error>Error: {{ getErrorMessage('prenomE') }}</mat-error>
+                      </mat-form-field>
+                        
+                      </div>
+                      <div class="inputGroup inputGroup3">
+                        
+                        <mat-form-field style="width: 50%;" class="example-full-width">
+                        <input matInput  placeholder="Last Name" type="text" id="email"  formControlName="nomE"  class="email" maxlength="256" />
+                        <mat-error>Error: {{ getErrorMessage('nomE') }}</mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="inputGroup inputGroup8">
+                      <mat-form-field style="width: 50%;" class="example-full-width">
+                        <input matInput  placeholder="Date de naissance"  formControlName="d" type="date" >
+                        <mat-error>Error: {{ getErrorMessage('d') }}</mat-error>
+                      </mat-form-field>
+                  </div>
+                  
+                    <div class="inputGroup inputGroup3">
+                        
+                      <mat-form-field style="width: 50%;" class="example-full-width">
+                        <input matInput placeholder="Password" formControlName="userPassword"  [errorStateMatcher]="passwordErrorMatcher"  required/>
+                        <mat-error>Error: {{ getErrorMessage('userPassword') }}</mat-error>
+                        </mat-form-field>
+                  </div>
+                  <div class="inputGroup inputGroup3">
+                        
+                    <mat-form-field style="width: 50%;" class="example-full-width">
+                      <input matInput placeholder="Confirm" formControlName="confirm"  [errorStateMatcher]="confirmErrorMatcher" required/>
+                      <mat-error>Error: {{ getErrorMessage('confirm') }}</mat-error>
+                      </mat-form-field>
+                  </div>
+                  
+                      <div class="inputGroup inputGroup7 col text-center">
+                        <button mat-raised-button id="login" type="submit" class="btn btn-danger " [disabled]="form.invalid" >Update Profile</button>
+                      </div>
+                    </form>
                   </div>
               </div>
           </div>
@@ -91,12 +71,17 @@
                       </a>
                   </div>
                   <div class="card-body">
-                      <h6 class="card-category text-gray">CEO / Co-Founder</h6>
-                      <h4 class="card-title">Alec Thompson</h4>
-                      <p class="card-description">
-                          Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                      <h6 *ngIf="role=='User'">User / Etudiant</h6>
+                      <h6 *ngIf="role=='Admin'">Admin</h6>
+                      <h4 class="card-title">{{data.userFirstName}} {{data.userLastName}}</h4>
+                      <h5 class="card-title">{{data.userName}}</h5>
+                      <p *ngIf="role=='Admin'" class="card-description">
+                        Un admin est comme un super-utilisateur, qui peut superviser l'ensemble du compte : il peut tout gérer,...
                       </p>
-                      <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a>
+                      <p *ngIf="role=='User'" class="card-description">
+                        En tant qu'étudiant, vous pouvez naviguer dans votre espace, essayez d'être en sécurité,...
+                      </p>
+                      <a href="javascript:void(0)" class="btn btn-danger btn-round">Enjoy</a>
                   </div>
               </div>
           </div>

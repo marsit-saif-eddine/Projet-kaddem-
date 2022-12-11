@@ -1,0 +1,102 @@
+<div class="main-content" >
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                    <div style="position:absolute">
+                      <h4 class="card-title ">Simple Table</h4>
+                      <p class="card-category"> Here is a subtitle for this table</p>
+                    
+                    </div>
+                    <div >
+                      <a mat-raised-button href="admin/table-list/Form-Ajout" class="btn btn-danger pull-right">Add Something</a>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead  class=" text-primary">
+                                <th>
+                                  username
+                                </th>
+                                <th>
+                                  prenom Etudiant
+                                </th>
+                                <th>
+                                  nom Etudiant
+                                </th>
+                                  <th>
+                                    option
+                                  </th>
+                                  <th>
+                                      date de naissance
+                                  </th>
+                                 
+                                  
+                                  <th>
+                                    Edit
+                                </th>
+                                <th>
+                                    Remove
+                                </th>
+                              </thead>
+                              <tbody *ngFor="let item of dataArray | paginate:{
+                                itemsPerPage : tableSize,
+                                currentPage : page ,
+                                totalItems : count
+                              }; let i = index">
+                                  <tr *ngIf="search=='' || item.prenomE.toLowerCase().includes(search)">
+                                   
+                                      <td> <a style="text-decoration: none; color:black" (click)="onselect(item.idEtudiant)" >
+                                        
+                                         {{item.idEtudiant}}
+                                        </a>
+
+                                      </td>
+                                      <td >
+                                        {{item.prenomE}}
+                                      </td>
+                                      <td >
+                                        {{item.nomE}}
+                                      </td>
+                                      <td>
+                                        {{item.opt}}
+                                      </td>
+                                      <td>
+                                        {{item.d}}
+                                      </td>
+                                     
+                                      
+                                      <td class="td-actions">
+                                        <button mat-raised-button (click)="OpenPopup(item)" type="button"  matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                            <i class="material-icons">edit</i>
+                                        </button>
+                                    </td>
+                                    <td class="td-actions">
+                                    <button mat-raised-button type="button" (click)="getid(item.idEtudiant) " matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                                  </tr>
+                                  
+                              </tbody>
+                          </table>
+                          <div style="text-align: -webkit-center;">
+                            <pagination-controls
+                            previousLabel="Prev"
+                            nextLabel="Next"
+                            (pageChange)="onTableDataChange($event)"
+                            
+                            >
+
+                            </pagination-controls>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</div>

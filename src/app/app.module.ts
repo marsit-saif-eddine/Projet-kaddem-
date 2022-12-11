@@ -17,16 +17,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './authentification/login/login.component';
-import { ListUniversiteComponent } from './Universite/list-universite/list-universite.component';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { AddUniversiteComponent } from './Universite/add-universite/add-universite.component';
-import { UpdateUniversiteComponent } from './Universite/update-universite/update-universite.component';
-import { ListReclamationComponent } from './Reclamation/list-reclamation/list-reclamation.component';
-import { AddReclamationComponent } from './Reclamation/add-reclamation/add-reclamation.component';
-import { UpdateReclamationComponent } from './Reclamation/update-reclamation/update-reclamation.component';
-import { DetailReclamationComponent } from './Reclamation/detail-reclamation/detail-reclamation.component';
-import { MesReclamationsComponent } from './Reclamation/mes-reclamations/mes-reclamations.component';
-import { MatDialog } from '@angular/material/dialog';
+import { RegisterComponent } from './authentification/register/register.component';
 
 
 
@@ -45,7 +36,8 @@ import { MatDialog } from '@angular/material/dialog';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-    NgxPaginationModule,
+    
+    
 
     
   ],
@@ -53,14 +45,8 @@ import { MatDialog } from '@angular/material/dialog';
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-    ListUniversiteComponent,
-    AddUniversiteComponent,
-    UpdateUniversiteComponent,
-    ListReclamationComponent,
-    AddReclamationComponent,
-    UpdateReclamationComponent,
-    DetailReclamationComponent,
-    MesReclamationsComponent
+    RegisterComponent,
+    
 
   ],
   providers: [],

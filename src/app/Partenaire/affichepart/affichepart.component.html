@@ -1,0 +1,84 @@
+<div class="main-content" >
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title "> Table Partenaire</h4>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead  class=" text-primary">
+                                  <th>
+                                      ID Partenaire
+                                  </th>
+                                  <th>
+                                      Nom Partenaire
+                                  </th>
+                                  <th>
+                                      Email Partenaire
+                                  </th>
+                                  <th>
+                                      date debut contrat
+                                  </th>
+                                  <th>
+                                    date fin contrat
+                                  </th>
+                                 
+                                 
+                              </thead>
+                              <tbody *ngFor="let item of dataArray | paginate:{
+                                itemsPerPage : tableSize,
+                                currentPage : page ,
+                                totalItems : count
+                              }; let i = index">
+                                  <tr *ngIf="search=='' || item.nomPart.toLowerCase().includes(search)">
+                                   
+                                      <td> <a style="text-decoration: none; color:black" (click)="onselect(item)" >
+                                        
+                                         {{item.idPart}}
+                                        </a>
+                                      </td>
+                                    
+                                      <td >
+                                        {{item.nomPart}}
+                                        
+                                      </td>
+                                      <td>
+                                        {{item.emailPart}}
+                                        
+                                      </td>
+                                      <td>
+                                        {{item.datedc}}
+                                        
+                                      </td>
+                                      <td >
+                                        {{item.datefc}}
+                                        
+                                        
+                                      </td>
+                                     
+                                     
+                                  </tr>
+                                  
+                              </tbody>
+                          </table>
+                          <div style="text-align: -webkit-center;">
+                            <pagination-controls
+                            previousLabel="Prev"
+                            nextLabel="Next"
+                            (pageChange)="onTableDataChange($event)"
+                            
+                            >
+
+                            </pagination-controls>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</div>

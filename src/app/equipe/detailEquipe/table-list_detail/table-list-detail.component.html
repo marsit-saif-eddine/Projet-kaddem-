@@ -1,0 +1,108 @@
+<div class="main-content" >
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                    <div style="position:absolute">
+                      <h4 class="card-title ">Simple Table</h4>
+                      
+                      <p class="card-category"> Details </p>
+                    
+                    </div>&
+                  
+                    <div >
+                      <a mat-raised-button href="admin/ajoutdetail" class="btn btn-danger pull-right" >Ajout detail equipe</a>
+                    </div>
+                   
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead  class=" text-primary">
+                                <th>
+                                  id
+                                </th>
+                                 
+                                  <th>
+                                    salle
+                                  </th>
+                                  <th>
+                                    thematique
+                                  </th>
+                            
+                                  <th>
+                                    Edit
+                                </th>
+                                <th>
+                                    Remove
+                                </th>
+                                <th>
+                                  Add to equipe
+                              </th>
+                              
+
+                              </thead>
+                              <tbody *ngFor="let item of dataArray | paginate:{
+                                itemsPerPage : tableSize,
+                                currentPage : page ,
+                                totalItems : count
+                              }; let i = index">
+                                  <tr *ngIf="search=='' || item.thematique.toLowerCase().includes(search)">
+                                    <td >
+                                      {{item.idDetailEquipe}}
+                                    </td>
+                                   
+                                      <td> <a style="text-decoration: none; color:black" (click)="onselect(item)" >
+                                        
+                                         {{item.salle}}
+                                        </a>
+                                      </td>
+                                    
+                                      <td >
+                                        {{item.thematique}}
+                                      </td>
+                    
+                                     
+                                      <td class="td-actions">
+                                        <button mat-raised-button (click)="OpenPopup(item)" type="button"  matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                            <i class="material-icons">edit</i>
+                                        </button>
+                                    </td>
+                                    <td class="td-actions">
+                                    <button mat-raised-button type="button"  (click)="getid(item) " matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                                <td class="td-actions">
+                                  <button mat-raised-button type="button"  (click)="affecterDetail(item) " matTooltip="add" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                      <i class="material-icons">add detail</i>
+                                  </button>
+                              </td>
+                             
+                                  </tr>
+                                  
+                              </tbody>
+                          </table>
+                          <div style="text-align: -webkit-center;">
+                            <pagination-controls
+                            previousLabel="Prev"
+                            nextLabel="Next"
+                            (pageChange)="onTableDataChange($event)"
+                            
+                            >
+
+                            </pagination-controls>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</div>
+<div >
+  <a mat-raised-button href="admin/listequipe" class="btn btn-danger pull-right">Return to equipes</a>
+</div>
+

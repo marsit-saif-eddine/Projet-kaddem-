@@ -1,0 +1,97 @@
+<div class="main-content" >
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                  
+                      <h4 class="card-title "> Table Departement</h4>
+                    
+                 
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead  class=" text-primary">
+                                  <th>
+                                      ID
+                                  </th>
+                                  <th>
+                                      Nom Departement
+                                  </th>
+                                  <th>
+                                      Email Departement
+                                  </th>
+                                  <th>
+                                      numero Departement
+                                  </th>
+                                  <th>
+                                      adresse Departement
+                                  </th>
+                                  <th>
+                                    code Postal
+                                </th>
+                                 
+                              </thead>
+                              <tbody *ngFor="let item of dataArray | paginate:{
+                                itemsPerPage : tableSize,
+                                currentPage : page ,
+                                totalItems : count
+                              }; let i = index">
+                                  <tr *ngIf="search=='' || item.nomDepart.toLowerCase().includes(search)">
+                                 
+                                  <tr *ngIf="search=='' || item.adresse.toLowerCase().includes(search)">
+
+
+                                   
+                                      <td> <a style="text-decoration: none; color:black" (click)="onselect(item)" >
+                                        
+                                         {{item.idDepart}}
+                                        </a>
+                                      </td>
+                                    
+                                      <td >
+                                        {{item.nomDepart}}
+                                        
+                                      </td>
+                                      <td>
+                                        {{item.emailDepart}}
+                                        
+                                      </td>
+                                      <td>
+                                        {{item.numDepart}}
+                                        
+                                      </td>
+                                      <td >
+                                        {{item.adresse}}
+                                        
+                                        
+                                      </td>
+                                      <td >
+                                        {{item.codepostal}}
+                                        
+                                        
+                                      </td>
+                                    
+                                  </tr>
+                                  
+                              </tbody>
+                          </table>
+                          <div style="text-align: -webkit-center;">
+                            <pagination-controls
+                            previousLabel="Prev"
+                            nextLabel="Next"
+                            (pageChange)="onTableDataChange($event)"
+                            
+                            >
+
+                            </pagination-controls>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</div>

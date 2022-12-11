@@ -1,0 +1,63 @@
+<div class="main-content">
+
+      <div class="">
+          
+              <div class="card">
+                 
+                  <div class="card-header card-header-danger">
+                    <div style="position:absolute">
+                      <h4 class="card-title ">Edit Profile</h4>
+                      
+                      <p class="card-category"> Add details</p>
+                    
+                    </div>&
+                  
+                    <div >
+                      <a mat-raised-button href="admin/listequipe" class="btn btn-danger pull-right">Return to equipes</a>
+                    </div>
+                   
+                  </div>
+                 
+                  <mat-stepper headerPosition="bottom" #stepper>
+                   
+
+                    <mat-step [stepControl]="firstFormGroup">
+                      <form [formGroup]="firstFormGroup" (ngSubmit)=" ajouterdetail1()" >
+                        <ng-template matStepLabel> écrire la salle </ng-template>
+                        <mat-form-field>
+                          <input type="number" matInput placeholder="salle" formControlName="salle" required>
+                        </mat-form-field>
+                        <div>
+                          <button mat-button matStepperNext>Next</button>
+                        </div>
+                      </form>
+                    </mat-step>
+                    <mat-step [stepControl]="secondFormGroup" optional>
+                      <form [formGroup]="secondFormGroup" (ngSubmit)=" ajouterdetail2()">
+                        <ng-template matStepLabel>écrire la thématique </ng-template>
+                        <mat-form-field>
+                          <input matInput placeholder="thematique" formControlName="thematique" required>
+                        </mat-form-field>
+                        <div>
+                          <button mat-button matStepperPrevious>Back</button>
+                          <button mat-button matStepperNext>Next</button>
+                        </div>
+                      </form>
+                    </mat-step>
+                    <mat-step [stepControl]="thirdFormGroup">
+                      <form [formGroup]="thirdFormGroup" (ngSubmit)=" ajouterdetail()" >
+                        <ng-template matStepLabel> finalisation </ng-template>
+                      
+                        <div>
+                          <button mat-button matStepperNext  >add</button>
+                        </div>
+                      </form>
+                    </mat-step>
+                   
+                  </mat-stepper>
+                 
+
+      
+      </div>
+
+</div>
