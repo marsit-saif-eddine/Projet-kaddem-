@@ -50,7 +50,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'Form-Update',     component: FormUpdateComponent },
     { path: 'affichage/:id',     component: affichageComponent },
     { path: 'table-listContrat',     component: TableListContratComponent },
-    { path: 'Form-AjoutContrat',     component: FormAjoutContratComponent },
     { path: 'Form-UpdateContrat',     component: FormUpdateContratComponent },
     { path: 'affichageContrat/:id',     component: affichageContratComponent },
     { path: 'table-listBlog',     component: TableListBlogComponent },
@@ -59,9 +58,17 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'admin/Form-updateBlog', component: FormUpdateBlogComponent},
     { path: 'Fronttable-listContrat',     component: TableListFrontComponent },
     { path: 'admin/Form-ajoutAfect',     component: FormUpdateAffectationComponent },
+    {path:'listContrat',
+    children:[
+    {path:'add', component:FormAjoutContratComponent},
+    {path:'', component:TableListContratComponent}
+
+                ]
+            }, 
 
 
 
+           
 
 
 

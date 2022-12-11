@@ -59,4 +59,11 @@ export class BlogService {
   {
     return this.httpClient.post(this.API_URL+this.ENDPOINT_ADD_BLOG,c,{ observe: 'response' })
   }
+
+  getphoto(id: any)
+  {
+    (this.host+'/SpringMVC/Blog/Imgarticles/'+id) ;
+    return this.httpClient.get(this.host+'/SpringMVC/Blog/Imgarticles/'+id)
+  }
+ 
 }
