@@ -17,7 +17,7 @@ export class ReclamationServiceService {
   LIST="listReclamation"
   ADD = "addReclamation"
   DELETE = "deleteReclamation/"
-  UPDATE ="updateReclamation"
+  UPDATE ="updateReclamation/"
 
   constructor(private http: HttpClient) { }
   
@@ -34,14 +34,18 @@ export class ReclamationServiceService {
     return this.http.delete(this.BaseURL+this.DELETE+id)
   }
   
-  updateReclamation(reclamation: any) {
-     return this.http.put(this.BaseURL + this.UPDATE,reclamation).pipe(tap(() => {
+  updateReclamation(reclamation: any, idE:any) {
+     return this.http.put(this.BaseURL + this.UPDATE+ idE ,reclamation ).pipe(tap(() => {
       this.RefreshRequired.next();
     }));
   }
 
   AddandAffectReclamationToStudent(idEtudiant: any, reclamation: any) {
-    return this.http.put("http://localhost:8088/SpringMVC/ReclamationC/AddandAffectReclamationToStudent/"+idEtudiant,reclamation)
+    return this.http.put("http://localhost:8088/SpringMVC/ReclamationC/AddandAffectReclamationToStudent/"+idEtudiant,reclamation) 
+  }
+
+  MesReclamations(idEtudiant: any) {
+    return this.http.get("http://localhost:8088/SpringMVC/ReclamationC/findAllBytudiant/" + idEtudiant);
     
   }
   

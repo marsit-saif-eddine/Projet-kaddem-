@@ -69,7 +69,8 @@ export class ListReclamationComponent implements OnInit, OnDestroy {
     console.log(item.objet)
      this.matdialog.open(DetailReclamationComponent,{
       data:item
-    })
+     })
+    console.log(item?.etudiants?.nomE)
   }
 
   OpenPopup(item){

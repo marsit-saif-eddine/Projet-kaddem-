@@ -39,7 +39,7 @@ export class UpdateReclamationComponent implements OnInit {
   
   updateReclamation(reclamation: any) {
     
-    this.data = this.reclamationService.updateReclamation(reclamation).subscribe(
+    this.data = this.reclamationService.updateReclamation(reclamation , 2).subscribe(
       data => {
         console.log(data)
       })

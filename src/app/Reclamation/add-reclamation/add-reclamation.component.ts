@@ -16,11 +16,11 @@ export class AddReclamationComponent implements OnInit {
   ngOnInit(): void {
   }
   addReclamation(FormRec:any) {
-    this.data = this.reclamationService.addReclamation(FormRec.value).subscribe(
+    this.data = this.reclamationService.AddandAffectReclamationToStudent(2,FormRec.value).subscribe(
       data => {
         console.log(data)
       })
-    this.router.navigate(['/listReclamation'])
+    this.router.navigate(['/mesReclamations'])
   }
 
 }

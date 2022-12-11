@@ -10,6 +10,7 @@ import { ListUniversiteComponent } from 'app/Universite/list-universite/list-uni
 import { AddUniversiteComponent } from 'app/Universite/add-universite/add-universite.component';
 import { ListReclamationComponent } from 'app/Reclamation/list-reclamation/list-reclamation.component';
 import { AddReclamationComponent } from 'app/Reclamation/add-reclamation/add-reclamation.component';
+import { MesReclamationsComponent } from 'app/Reclamation/mes-reclamations/mes-reclamations.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -45,7 +46,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'listUniversite',     component: ListUniversiteComponent },
     { path: 'addUniversite',     component: AddUniversiteComponent },
     { path: 'listReclamation', component: ListReclamationComponent },
-    { path: 'addReclamation',     component: AddReclamationComponent }
+    { path: 'addReclamation', component: AddReclamationComponent },
+    {path: 'mesReclamations', component: MesReclamationsComponent},
+
 
 
   

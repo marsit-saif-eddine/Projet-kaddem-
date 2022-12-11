@@ -25,6 +25,8 @@ import { ListReclamationComponent } from './Reclamation/list-reclamation/list-re
 import { AddReclamationComponent } from './Reclamation/add-reclamation/add-reclamation.component';
 import { UpdateReclamationComponent } from './Reclamation/update-reclamation/update-reclamation.component';
 import { DetailReclamationComponent } from './Reclamation/detail-reclamation/detail-reclamation.component';
+import { MesReclamationsComponent } from './Reclamation/mes-reclamations/mes-reclamations.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 
@@ -43,7 +45,8 @@ import { DetailReclamationComponent } from './Reclamation/detail-reclamation/det
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+
     
   ],
   declarations: [
@@ -56,7 +59,8 @@ import { DetailReclamationComponent } from './Reclamation/detail-reclamation/det
     ListReclamationComponent,
     AddReclamationComponent,
     UpdateReclamationComponent,
-    DetailReclamationComponent
+    DetailReclamationComponent,
+    MesReclamationsComponent
 
   ],
   providers: [],

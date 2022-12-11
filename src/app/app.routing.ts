@@ -7,6 +7,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { LoginComponent } from './authentification/login/login.component';
 import { ListUniversiteComponent } from './Universite/list-universite/list-universite.component';
 import { AddUniversiteComponent } from './Universite/add-universite/add-universite.component';
+import { MesReclamationsComponent } from './Reclamation/mes-reclamations/mes-reclamations.component';
 
 const routes: Routes =[
   {
@@ -23,7 +24,8 @@ const routes: Routes =[
   },
   { path: 'login',     component: LoginComponent },
   { path: 'listuniversite', component: ListUniversiteComponent },
-  { path: 'addUniversite',     component: AddUniversiteComponent }
+  { path: 'addUniversite', component: AddUniversiteComponent },
+
 
 ];
 

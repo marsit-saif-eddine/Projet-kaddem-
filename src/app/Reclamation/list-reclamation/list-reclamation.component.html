@@ -18,7 +18,6 @@
                                     <th>ID</th>
                                     <th>Objet</th>
                                     <th>Description</th>
-                                    <th>EDIT</th>
                                     <th>DELETE</th>
                                 </thead>
                                 <tbody *ngFor="let r of reclamations | paginate:{
@@ -33,13 +32,7 @@
                                         </td>
                                         <td>{{r.objet}}</td>
                                         <td> <a style="text-decoration: none; color:black" (click)="onselect(r)">Click to view description</a></td>
-                                        <td class="td-actions">
-                                            <button mat-raised-button (click)="OpenPopup(r)" type="button"
-                                                matTooltip="Edit Reclamation" [matTooltipPosition]="'above'"
-                                                class="btn btn-primary btn-link btn-sm btn-just-icon">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                        </td>
+        
                                         <td class="td-actions">
                                             <button mat-raised-button type="button" (click)="deleteRecByid(r.idReclamation) "
                                                 matTooltip="Remove" [matTooltipPosition]="'above'"
